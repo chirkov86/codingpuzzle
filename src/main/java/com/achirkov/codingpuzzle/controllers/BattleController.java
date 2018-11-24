@@ -10,7 +10,7 @@ import com.achirkov.codingpuzzle.menus.menuitems.MenuOption;
 
 import static com.achirkov.codingpuzzle.game.GameState.*;
 
-public class BattleController extends AbstractStateController implements StateController {
+public class BattleController extends AbstractController implements StateController {
 
     public BattleController() {
         menu = new BattleMenu();

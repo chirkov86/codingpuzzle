@@ -5,7 +5,7 @@ import com.achirkov.codingpuzzle.game.GameState;
 import com.achirkov.codingpuzzle.menus.Menu;
 import com.achirkov.codingpuzzle.menus.menuitems.MenuOption;
 
-public abstract class AbstractStateController implements StateController {
+public abstract class AbstractController implements StateController {
 
     Menu menu;
 

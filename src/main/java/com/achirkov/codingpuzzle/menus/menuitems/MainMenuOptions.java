@@ -3,7 +3,7 @@ package com.achirkov.codingpuzzle.menus.menuitems;
 public enum MainMenuOptions implements MenuOption {
     START_NEW_GAME("1. Start a new game", 1),
     SAVE_GAME("2. Save game", 2),
-    LOAD_GAME("3. Load game", 3),
+    RESUME_GAME("3. Resume game", 3),
     EXIT("4. Exit", 4),
     ;
 

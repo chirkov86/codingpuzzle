@@ -12,7 +12,7 @@ import static com.achirkov.codingpuzzle.game.GameState.*;
 import static com.achirkov.codingpuzzle.io.ColorCodes.ANSI_RED;
 import static com.achirkov.codingpuzzle.io.ColorCodes.ANSI_RESET;
 
-public class TravelMapController extends AbstractStateController implements StateController {
+public class TravelMapController extends AbstractController implements StateController {
 
     public TravelMapController() {
         menu = new TravelMenu();

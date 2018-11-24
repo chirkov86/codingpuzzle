@@ -8,9 +8,9 @@ import com.achirkov.codingpuzzle.menus.menuitems.MenuOption;
 
 import static com.achirkov.codingpuzzle.game.GameState.*;
 
-public class MainStateController extends AbstractStateController implements StateController {
+public class MainMenuController extends AbstractController implements StateController {
 
-    public MainStateController(String gameName) {
+    public MainMenuController(String gameName) {
         this.menu = new MainMenu(gameName);
     }
 
@@ -23,13 +23,24 @@ public class MainStateController extends AbstractStateController implements Stat
                 return CHARACTER_SELECTION;
             case SAVE_GAME:
                 return SAVE_GAME;
-            case LOAD_GAME:
-                return LOAD_GAME;
+            case RESUME_GAME:
+                return contextAwareResume(gameContextManager);
             case EXIT:
                 System.out.println("Good buy!");
                 return EXIT;
             default:
                 return MAIN_MENU;
         }
+    }
+
+    /**
+     * Resume option is context dependent:
+     * <li>It resumes Travel Map if player is on Travel</li>
+     * <li>It resumes saved game if player has not started a new game yet</li>
+     */
+    private GameState contextAwareResume(GameContextManager gameContextManager) {
+        if (gameContextManager.getPlayer() != null)
+            return TRAVEL;
+        else return MAIN_MENU;
     }
 }

@@ -15,7 +15,7 @@ import com.achirkov.codingpuzzle.controllers.BattleConfirmationController;
  * Current state is the property of the {@code GameContextManager}.
  */
 public enum GameState {
-    MAIN_MENU(new MainStateController("")) {
+    MAIN_MENU(new MainMenuController("")) {
         @Override
         public void prepare(GameContextManager gameContextManager) {
             stateStateController.showMenu(gameContextManager);
@@ -26,7 +26,7 @@ public enum GameState {
             return stateStateController.processCommand(command, gameContextManager);
         }
     },
-    EXIT(new ExitStateController()) {
+    EXIT(new ExitMenuController()) {
         public void prepare(GameContextManager gameContextManager) {
         }
 
@@ -35,7 +35,7 @@ public enum GameState {
             return null;
         }
     },
-    CHARACTER_SELECTION(new CharacterSelectionStateController()) {
+    CHARACTER_SELECTION(new CharacterSelectionMenuController()) {
         @Override
         public void prepare(GameContextManager gameContextManager) {
             stateStateController.showMenu(gameContextManager);
@@ -56,7 +56,7 @@ public enum GameState {
             return null;
         }
     },
-    LOAD_GAME(null) {
+    RESUME_GAME(new ResumeGameController()) {
         @Override
         public void prepare(GameContextManager gameContextManager) {
         }
@@ -99,7 +99,7 @@ public enum GameState {
             return stateStateController.processCommand(command, gameContextManager);
         }
     },
-    VICTORY(new VictoryStateController()) {
+    VICTORY(new VictoryMenuController()) {
         @Override
         public void prepare(GameContextManager gameContextManager) {
             stateStateController.showReport(gameContextManager);
@@ -111,7 +111,7 @@ public enum GameState {
             return stateStateController.processCommand(command, gameContextManager);
         }
     },
-    DEATH(new DeathStateController()) {
+    DEATH(new DeathMenuController()) {
         @Override
         public void prepare(GameContextManager gameContextManager) {
             stateStateController.showMenu(gameContextManager);

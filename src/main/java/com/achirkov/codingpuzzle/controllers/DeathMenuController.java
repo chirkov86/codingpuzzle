@@ -7,9 +7,9 @@ import com.achirkov.codingpuzzle.menus.menuitems.MenuOption;
 
 import static com.achirkov.codingpuzzle.game.GameState.MAIN_MENU;
 
-public class DeathStateController extends AbstractStateController implements StateController {
+public class DeathMenuController extends AbstractController implements StateController {
 
-    public DeathStateController() {
+    public DeathMenuController() {
             this.menu = new DeathMenu();
     }
 

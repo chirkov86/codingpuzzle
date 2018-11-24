@@ -12,9 +12,9 @@ import com.achirkov.codingpuzzle.positioning.Position;
 import static com.achirkov.codingpuzzle.game.GameState.MAIN_MENU;
 import static com.achirkov.codingpuzzle.game.GameState.TRAVEL;
 
-public class CharacterSelectionStateController extends AbstractStateController implements StateController {
+public class CharacterSelectionMenuController extends AbstractController implements StateController {
 
-    public CharacterSelectionStateController() {
+    public CharacterSelectionMenuController() {
         menu = new CharacterSelectionMenu();
     }
 

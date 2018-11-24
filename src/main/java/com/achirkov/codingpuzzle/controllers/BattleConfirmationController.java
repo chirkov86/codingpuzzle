@@ -9,7 +9,7 @@ import com.achirkov.codingpuzzle.positioning.Position;
 
 import static com.achirkov.codingpuzzle.game.GameState.*;
 
-public class BattleConfirmationController  extends AbstractStateController implements StateController {
+public class BattleConfirmationController  extends AbstractController implements StateController {
 
     public BattleConfirmationController() {
         menu = new BattleConfirmationMenu();

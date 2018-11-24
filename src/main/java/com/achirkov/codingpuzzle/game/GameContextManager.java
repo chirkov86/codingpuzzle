@@ -10,6 +10,7 @@ public class GameContextManager {
 
     private final static Logger LOGGER = Logger.getInstance();
     private GameState gameState;
+    private GameState prevGameState;
     private Player player;
     private GameMap gameMap;
     private Position positionForAttack;
@@ -17,6 +18,10 @@ public class GameContextManager {
 
     GameContextManager() {
         init();
+    }
+
+    public void save(GameContextManager gameContextManager) {
+        GameContextHolder.from(player, gameMap);
     }
 
     public void init() {
@@ -39,6 +44,7 @@ public class GameContextManager {
     void processCommand(MenuOption command) {
         LOGGER.debug("Current state: " + gameState.toString());
         LOGGER.debug("Processing command: " + command);
+        prevGameState = gameState;
         this.gameState = gameState.processCommand(command, this);
         LOGGER.debug("New state: " + gameState.toString());
     }
@@ -65,5 +71,9 @@ public class GameContextManager {
 
     public void setPositionForFlee(Position positionForFlee) {
         this.positionForFlee = positionForFlee;
+    }
+
+    public GameState getPrevGameState() {
+        return prevGameState;
     }
 }

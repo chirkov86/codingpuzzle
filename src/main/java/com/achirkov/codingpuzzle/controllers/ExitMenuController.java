@@ -7,9 +7,9 @@ import com.achirkov.codingpuzzle.menus.menuitems.MenuOption;
 
 import static com.achirkov.codingpuzzle.game.GameState.EXIT;
 
-public class ExitStateController extends AbstractStateController implements StateController {
+public class ExitMenuController extends AbstractController implements StateController {
 
-    public ExitStateController() {
+    public ExitMenuController() {
         menu = new ExitMenu();
     }
 

@@ -8,9 +8,9 @@ import com.achirkov.codingpuzzle.menus.menuitems.MenuOption;
 
 import static com.achirkov.codingpuzzle.game.GameState.TRAVEL;
 
-public class VictoryStateController extends AbstractStateController implements StateController {
+public class VictoryMenuController extends AbstractController implements StateController {
 
-    public VictoryStateController() {
+    public VictoryMenuController() {
         menu = new VictoryMenu();
     }
 
