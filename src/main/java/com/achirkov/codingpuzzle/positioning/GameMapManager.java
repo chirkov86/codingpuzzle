@@ -97,4 +97,9 @@ public class GameMapManager {
     public GameMap getGameMap() {
         return gameMap;
     }
+
+    public void setMap(GameMap gameMap) {
+
+
+    }
 }

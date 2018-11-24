@@ -22,7 +22,7 @@ public class MainMenuController extends AbstractController implements StateContr
                 gameContextManager.init();
                 return CHARACTER_SELECTION;
             case SAVE_GAME:
-                return SAVE_GAME;
+                return save(gameContextManager);
             case RESUME_GAME:
                 return contextAwareResume(gameContextManager);
             case EXIT:
@@ -33,6 +33,12 @@ public class MainMenuController extends AbstractController implements StateContr
         }
     }
 
+    private GameState save(GameContextManager gameContextManager) {
+        gameContextManager.save();
+        System.out.println("Game saved!");
+        return TRAVEL;
+    }
+
     /**
      * Resume option is context dependent:
      * <li>It resumes Travel Map if player is on Travel</li>
@@ -41,6 +47,9 @@ public class MainMenuController extends AbstractController implements StateContr
     private GameState contextAwareResume(GameContextManager gameContextManager) {
         if (gameContextManager.getPlayer() != null)
             return TRAVEL;
-        else return MAIN_MENU;
+        else {
+            gameContextManager.load();
+            return TRAVEL;
+        }
     }
 }

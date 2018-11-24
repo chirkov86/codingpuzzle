@@ -53,7 +53,7 @@ public enum GameState {
 
         @Override
         public GameState processCommand(MenuOption command, GameContextManager gameContextManager) {
-            return null;
+            return stateStateController.processCommand(command, gameContextManager);
         }
     },
     RESUME_GAME(new ResumeGameController()) {

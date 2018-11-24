@@ -2,8 +2,6 @@ package com.achirkov.codingpuzzle.creatures;
 
 import com.achirkov.codingpuzzle.positioning.Position;
 
-import java.io.Serializable;
-
 public abstract class Player extends AbstractCreature implements Creature {
 
     private String characterClass;

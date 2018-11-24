@@ -13,7 +13,7 @@ public class GameContextSerializer {
         if (!dir.exists()) {
             dir.mkdir();
         }
-        try (FileOutputStream fos = new FileOutputStream(new File("savegames/savegame.json"));
+        try (FileOutputStream fos = new FileOutputStream(new File("savegames/savegame"));
              ObjectOutputStream oos = new ObjectOutputStream(fos)) {
 
             oos.writeObject(gameContextHolder);
@@ -23,8 +23,8 @@ public class GameContextSerializer {
     }
 
     public GameContextHolder deserializeContext() throws ClassNotFoundException {
-        File file = new File("savegames/savegame.json");
-        GameContextHolder value = null;
+        File file = new File("savegames/savegame");
+        GameContextHolder contextHolder = null;
 
         if (!file.exists()) {
             throw new SaveGameNotFoundException("");
@@ -32,10 +32,10 @@ public class GameContextSerializer {
         try (FileInputStream fis = new FileInputStream(file);
              ObjectInputStream ois = new ObjectInputStream(fis)) {
 
-            value = (GameContextHolder) ois.readObject();
+            contextHolder = (GameContextHolder) ois.readObject();
         } catch (IOException e) {
             LOGGER.debug(e.getMessage());
         }
-        return value;
+        return contextHolder;
     }
 }

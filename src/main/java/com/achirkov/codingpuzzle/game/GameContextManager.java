@@ -12,18 +12,36 @@ public class GameContextManager {
     private GameState gameState;
     private GameState prevGameState;
     private Player player;
-    private GameMapManager gameMapManager;
     private Position positionForAttack;
     private Position positionForFlee;
+    private GameMapManager gameMapManager;
+    private GameContextSerializer gameContextSerializer;
 
     GameContextManager() {
         init();
     }
 
     public void save() {
-        //GameContextHolder.from(player, gameMapManager.getGameMap());
+        gameContextSerializer.serializeContext(new GameContextHolder(player, getGameMapManager().getGameMap()));
     }
 
+    public void load() {
+        gameContextSerializer = new GameContextSerializer();
+        GameContextHolder contextHolder = null;
+        try {
+            contextHolder = gameContextSerializer.deserializeContext();
+        } catch (ClassNotFoundException e) {
+            LOGGER.debug(e.getMessage());
+        }
+        if (contextHolder != null && contextHolder.getPlayer() != null && contextHolder.getGameMap() != null) {
+            setPlayer(contextHolder.getPlayer());
+            gameMapManager = new GameMapManager(contextHolder.getGameMap());
+        }
+    }
+
+    /**
+     * This method starts new game
+     */
     public void init() {
         gameState = GameState.MAIN_MENU;
         gameMapManager = new GameMapManager(4);
@@ -76,4 +94,5 @@ public class GameContextManager {
     public GameState getPrevGameState() {
         return prevGameState;
     }
+
 }

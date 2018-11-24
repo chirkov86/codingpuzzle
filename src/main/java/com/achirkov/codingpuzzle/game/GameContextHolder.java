@@ -15,10 +15,6 @@ class GameContextHolder implements Serializable {
         this.gameMap = gameMap;
     }
 
-//    static GameContextHolder from(Player player, GameMap gameMap) {
-//        return new GameContextHolder(player, gameMap);
-//    }
-
     public Player getPlayer() {
         return player;
     }
