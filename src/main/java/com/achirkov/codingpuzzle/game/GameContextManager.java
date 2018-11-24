@@ -44,7 +44,7 @@ public class GameContextManager {
      */
     public void init() {
         gameState = GameState.MAIN_MENU;
-        gameMapManager = new GameMapManager(4);
+        gameMapManager = new GameMapManager(6);
     }
 
     public GameMapManager getGameMapManager() {

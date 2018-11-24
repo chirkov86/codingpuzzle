@@ -34,4 +34,15 @@ public class MapGenerator {
         gameMapManager.getEnemies().add(new Skeleton(position));
     }
 
+    // TODO optimize this
+    public void fillFogOfWar(GameMapManager gameMapManager) {
+        int dimension = gameMapManager.getGameMap().getDimension();
+        boolean[][] fogOfWar = gameMapManager.getGameMap().getFogOfWar();
+        for (int i = 0; i < dimension; i++) {
+            for (int j = 0; j < dimension; j++) {
+                fogOfWar[i][j] = true;
+            }
+        }
+        gameMapManager.clearFogOfWarInObservablePositions();
+    }
 }

@@ -10,11 +10,13 @@ import java.util.Collection;
  */
 public class GameMap implements Serializable {
     private int dimension;
+    private boolean fogOfWar[][];
     private Collection<Creature> enemies;
     private Position playerPosition;
 
     public GameMap(int dimension, Collection<Creature> enemies, Position playerPosition) {
         this.dimension = dimension;
+        this.fogOfWar = new boolean[dimension][dimension];
         this.enemies = enemies;
         this.playerPosition = playerPosition;
     }
@@ -41,5 +43,13 @@ public class GameMap implements Serializable {
 
     public void setPlayerPosition(Position playerPosition) {
         this.playerPosition = playerPosition;
+    }
+
+    public boolean[][] getFogOfWar() {
+        return fogOfWar;
+    }
+
+    public void setFogOfWar(boolean[][] fogOfWar) {
+        this.fogOfWar = fogOfWar;
     }
 }

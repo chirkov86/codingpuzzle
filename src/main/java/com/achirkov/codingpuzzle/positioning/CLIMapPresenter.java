@@ -12,11 +12,15 @@ public class CLIMapPresenter implements MapPresenter {
         for (int y = dimension - 1; y >= 0; y--) {
             for (int x = 0; x < dimension; x++) {
                 if (gameMapManager.isPlayerPosition(x, y)) {
-                    sb.append(ANSI_BLUE).append("P").append(ANSI_RESET).append(" ");
-                } else if (gameMapManager.isMonsterPosition(x, y) && gameMapManager.getEnemyAt(x, y).get().isAlive()) {
+                    sb.append(BLUE_BOLD).append("P").append(ANSI_RESET).append(" ");
+                } else if (gameMapManager.isMonsterPosition(x, y)
+                        && gameMapManager.getEnemyAt(x, y).get().isAlive()
+                        && gameMapManager.isPositionExplored(x, y)) {
                     sb.append(ANSI_RED).append("M").append(ANSI_RESET).append(" ");
+                } else if (gameMapManager.isPositionExplored(x, y)) {
+                    sb.append(WHITE_BACKGROUND).append("_").append(" ").append(ANSI_RESET);
                 } else {
-                    sb.append("_").append(" ");
+                    sb.append("_").append(" ").append(ANSI_RESET);
                 }
             }
             sb.append("\n");

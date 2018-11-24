@@ -4,6 +4,7 @@ import com.achirkov.codingpuzzle.creatures.Creature;
 import com.achirkov.codingpuzzle.exceptions.CreatureNotFound;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Optional;
 
@@ -18,6 +19,7 @@ public class GameMapManager {
         this.mapPresenter = new CLIMapPresenter();
         this.mapGenerator = new MapGenerator();
         mapGenerator.randomlyFillMapWithCreatures(this);
+        mapGenerator.fillFogOfWar(this);
     }
 
     public GameMapManager(GameMap gameMap) {
@@ -36,6 +38,52 @@ public class GameMapManager {
 
     public void setPlayerPosition(Position position) {
         gameMap.setPlayerPosition(position);
+        clearFogOfWarInObservablePositions();
+    }
+
+    void clearFogOfWarInObservablePositions() {
+        boolean[][] fogOfWar = gameMap.getFogOfWar();
+        Collection<Position> adjacentPositions = getObservablePositionsAround();
+        adjacentPositions.forEach(position -> {
+            fogOfWar[position.getX()][position.getY()] = false;
+        });
+    }
+
+    /**
+     * Assuming that a player can observe one adjacent cell
+     * method should return up to 8 adjacent cells
+     */
+    private Collection<Position> getObservablePositionsAround() {
+        Position playerPosition = getPlayerPosition();
+        HashSet<Position> set = new HashSet<>();
+        int dimension = getDimension();
+        int y = playerPosition.getY();
+        int x = playerPosition.getX();
+        if (y - 1 >= 0) {
+            set.add(Position.from(x, y - 1));
+        }
+        if (y - 1 >= 0 && x - 1 >= 0) {
+            set.add(Position.from(x - 1, y - 1));
+        }
+        if (x - 1 >= 0) {
+            set.add(Position.from(x - 1, y));
+        }
+        if (y + 1 < dimension && x - 1 >= 0) {
+            set.add(Position.from(x - 1, y + 1));
+        }
+        if (y + 1 < dimension) {
+            set.add(Position.from(x, y + 1));
+        }
+        if (y + 1 < dimension && x + 1 < dimension) {
+            set.add(Position.from(x + 1, y + 1));
+        }
+        if (x + 1 < dimension) {
+            set.add(Position.from(x + 1, y));
+        }
+        if (y - 1 >= 0 && x + 1 < dimension) {
+            set.add(Position.from(x + 1, y - 1));
+        }
+        return set;
     }
 
     public boolean assertPositionIsValid(Position position) {
@@ -81,14 +129,13 @@ public class GameMapManager {
      * Returns an {@code Optional} creature at a given position if it is found or an empty {@code Optional} otherwise
      */
     public Optional<Creature> getEnemyAt(int x, int y) {
-        return getEnemyAt(Position.from(x,y));
+        return getEnemyAt(Position.from(x, y));
     }
 
     public Creature getEnemyAtCurrentPosition() {
         return getEnemyAt(gameMap.getPlayerPosition())
                 .orElseThrow(() -> new CreatureNotFound("Creature not found at current position"));
     }
-
 
     public int getDimension() {
         return gameMap.getDimension();
@@ -98,8 +145,7 @@ public class GameMapManager {
         return gameMap;
     }
 
-    public void setMap(GameMap gameMap) {
-
-
+    public boolean isPositionExplored(int x, int y) {
+        return !getGameMap().getFogOfWar()[x][y];
     }
 }
