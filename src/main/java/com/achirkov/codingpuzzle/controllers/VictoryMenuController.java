@@ -22,7 +22,7 @@ public class VictoryMenuController extends AbstractController implements StateCo
     @Override
     public void showReport(GameContextManager gameContextManager) {
 
-        Creature creature = gameContextManager.getGameMap().getEnemyAtCurrentPosition();
+        Creature creature = gameContextManager.getGameMapManager().getEnemyAtCurrentPosition();
 
         System.out.println("Congratulations! You have killed a " + creature.getName());
         System.out.println("You have earned " + creature.getExpReward() + " exp points and " + creature.getMoneyReward() + " coins");

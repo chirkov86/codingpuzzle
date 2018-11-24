@@ -3,7 +3,7 @@ package com.achirkov.codingpuzzle.game;
 import com.achirkov.codingpuzzle.creatures.Player;
 import com.achirkov.codingpuzzle.logger.Logger;
 import com.achirkov.codingpuzzle.menus.menuitems.MenuOption;
-import com.achirkov.codingpuzzle.positioning.GameMap;
+import com.achirkov.codingpuzzle.positioning.GameMapManager;
 import com.achirkov.codingpuzzle.positioning.Position;
 
 public class GameContextManager {
@@ -12,7 +12,7 @@ public class GameContextManager {
     private GameState gameState;
     private GameState prevGameState;
     private Player player;
-    private GameMap gameMap;
+    private GameMapManager gameMapManager;
     private Position positionForAttack;
     private Position positionForFlee;
 
@@ -20,17 +20,17 @@ public class GameContextManager {
         init();
     }
 
-    public void save(GameContextManager gameContextManager) {
-        GameContextHolder.from(player, gameMap);
+    public void save() {
+        //GameContextHolder.from(player, gameMapManager.getGameMap());
     }
 
     public void init() {
         gameState = GameState.MAIN_MENU;
-        gameMap = new GameMap(4);
+        gameMapManager = new GameMapManager(4);
     }
 
-    public GameMap getGameMap() {
-        return gameMap;
+    public GameMapManager getGameMapManager() {
+        return gameMapManager;
     }
 
     GameState getGameState() {

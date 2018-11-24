@@ -38,19 +38,19 @@ public class TravelMapController extends AbstractController implements StateCont
     }
 
     private GameState tryMove(GameContextManager gameContextManager, Direction direction) {
-        Position newPosition = gameContextManager.getGameMap().getPlayerPosition().getNewPositionToThe(direction);
+        Position newPosition = gameContextManager.getGameMapManager().getPlayerPosition().getNewPositionToThe(direction);
 
-        if (!gameContextManager.getGameMap().assertPositionIsValid(newPosition)) {
+        if (!gameContextManager.getGameMapManager().assertPositionIsValid(newPosition)) {
             System.out.println(ANSI_RED + "\n This move is not available!\n" + ANSI_RESET);
             return TRAVEL;
         }
-        if (!gameContextManager.getGameMap().assertPositionIsFree(newPosition)) {
+        if (!gameContextManager.getGameMapManager().assertPositionIsFree(newPosition)) {
             System.out.println(ANSI_RED + "\n There is an enemy!\n" + ANSI_RESET);
             gameContextManager.setPositionForAttack(newPosition);
-            gameContextManager.setPositionForFlee(gameContextManager.getGameMap().getPlayerPosition());
+            gameContextManager.setPositionForFlee(gameContextManager.getGameMapManager().getPlayerPosition());
             return BATTLE_CONFIRMATION;
         }
-        gameContextManager.getGameMap().setPlayerPosition(newPosition);
+        gameContextManager.getGameMapManager().setPlayerPosition(newPosition);
         return TRAVEL;
     }
 }

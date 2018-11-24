@@ -3,19 +3,21 @@ package com.achirkov.codingpuzzle.game;
 import com.achirkov.codingpuzzle.creatures.Player;
 import com.achirkov.codingpuzzle.positioning.GameMap;
 
-class GameContextHolder {
+import java.io.Serializable;
+
+class GameContextHolder implements Serializable {
 
     private Player player;
     private GameMap gameMap;
 
-    GameContextHolder(Player player, GameMap gameMap) {
-//        this.player = player;
+    public GameContextHolder(Player player, GameMap gameMap) {
+        this.player = player;
         this.gameMap = gameMap;
     }
 
-    static GameContextHolder from(Player player, GameMap gameMap) {
-        return new GameContextHolder(player, gameMap);
-    }
+//    static GameContextHolder from(Player player, GameMap gameMap) {
+//        return new GameContextHolder(player, gameMap);
+//    }
 
     public Player getPlayer() {
         return player;

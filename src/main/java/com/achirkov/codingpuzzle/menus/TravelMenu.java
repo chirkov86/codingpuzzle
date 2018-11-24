@@ -19,8 +19,8 @@ public class TravelMenu extends AbstractMenu implements Menu {
     @Override
     public void show(GameContextManager gameContextManager) {
         System.out.println(sb);
-        System.out.println("Your current location is: " + gameContextManager.getGameMap().getPlayerPosition().toString() + "\n");
-        gameContextManager.getGameMap().print();
+        System.out.println("Your current location is: " + gameContextManager.getGameMapManager().getPlayerPosition().toString() + "\n");
+        gameContextManager.getGameMapManager().print();
     }
 
 

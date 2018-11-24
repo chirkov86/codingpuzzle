@@ -20,7 +20,7 @@ public class BattleConfirmationController  extends AbstractController implements
         switch ((BattleConfirmationMenuOptions) command) {
             case ENGAGE:
                 Position positionForAttack = gameContextManager.getPositionForAttack();
-                gameContextManager.getGameMap().setPlayerPosition(positionForAttack);
+                gameContextManager.getGameMapManager().setPlayerPosition(positionForAttack);
                 gameContextManager.setPositionForAttack(null);
                 System.out.println("You have engaged the battle!");
                 return BATTLE;

@@ -3,9 +3,10 @@ package com.achirkov.codingpuzzle.creatures;
 import com.achirkov.codingpuzzle.exceptions.CreatureIsDead;
 import com.achirkov.codingpuzzle.positioning.Position;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public abstract class AbstractCreature implements Creature {
+public abstract class AbstractCreature implements Creature, Serializable {
 
     private static final Random random = new Random();
 

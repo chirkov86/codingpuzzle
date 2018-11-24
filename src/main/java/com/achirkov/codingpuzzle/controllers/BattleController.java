@@ -31,13 +31,13 @@ public class BattleController extends AbstractController implements StateControl
 
     private GameState fleeToPrevPosition(GameContextManager gameContextManager) {
         System.out.println("You have cowardly fled from the battle");
-        gameContextManager.getGameMap().setPlayerPosition(gameContextManager.getPositionForFlee());
+        gameContextManager.getGameMapManager().setPlayerPosition(gameContextManager.getPositionForFlee());
         gameContextManager.setPositionForFlee(null);
         return TRAVEL;
     }
 
     private GameState tryAttack(GameContextManager gameContextManager) {
-        Creature enemy = gameContextManager.getGameMap().getEnemyAtCurrentPosition();
+        Creature enemy = gameContextManager.getGameMapManager().getEnemyAtCurrentPosition();
         Player player = gameContextManager.getPlayer();
 
         int playerAttack = player.attack();

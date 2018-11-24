@@ -12,16 +12,16 @@ public class MapGenerator {
         this.random = new Random();
     }
 
-    void randomlyFillMapWithCreatures(GameMap gameMap) {
+    void randomlyFillMapWithCreatures(GameMapManager gameMapManager) {
 
         //TODO adapt method to scale up number of monsters with map size
         for (int i = 0; i < 2; i++) {
-            randomlyFillMapWithCreature(gameMap);
+            randomlyFillMapWithCreature(gameMapManager);
         }
     }
 
-    private void randomlyFillMapWithCreature(GameMap gameMap) {
-        int dimension = gameMap.getDimension();
+    private void randomlyFillMapWithCreature(GameMapManager gameMapManager) {
+        int dimension = gameMapManager.getDimension();
         Position position;
         int x;
         int y;
@@ -29,9 +29,9 @@ public class MapGenerator {
             x = random.nextInt(dimension);
             y = random.nextInt(dimension);
             position = new Position(x, y);
-        } while (gameMap.isMonsterPosition(x, y) || gameMap.isPlayerPosition(x, y));
+        } while (gameMapManager.isMonsterPosition(x, y) || gameMapManager.isPlayerPosition(x, y));
 
-        gameMap.getEnemies().add(new Skeleton(position));
+        gameMapManager.getEnemies().add(new Skeleton(position));
     }
 
 }

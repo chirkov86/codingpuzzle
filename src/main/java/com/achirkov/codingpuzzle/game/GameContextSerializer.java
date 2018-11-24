@@ -1,24 +1,41 @@
 package com.achirkov.codingpuzzle.game;
 
+import com.achirkov.codingpuzzle.exceptions.SaveGameNotFoundException;
 import com.achirkov.codingpuzzle.logger.Logger;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 public class GameContextSerializer {
-    private final static Logger LOGGER = Logger.getInstance();
-    private ObjectMapper objectMapper;
+    private static final Logger LOGGER = Logger.getInstance();
 
-    public GameContextSerializer() {
-        this.objectMapper = new ObjectMapper();
-    }
-
-    public void serializeContext(GameContextHolder gameContextHolder) throws IOException {
+    public void serializeContext(GameContextHolder gameContextHolder) {
         File dir = new File("savegames");
         if (!dir.exists()) {
             dir.mkdir();
         }
-        objectMapper.writeValue(new File("savegames/savegame.json"), gameContextHolder);
+        try (FileOutputStream fos = new FileOutputStream(new File("savegames/savegame.json"));
+             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+
+            oos.writeObject(gameContextHolder);
+        } catch (IOException e) {
+            LOGGER.debug(e.getMessage());
+        }
+    }
+
+    public GameContextHolder deserializeContext() throws ClassNotFoundException {
+        File file = new File("savegames/savegame.json");
+        GameContextHolder value = null;
+
+        if (!file.exists()) {
+            throw new SaveGameNotFoundException("");
+        }
+        try (FileInputStream fis = new FileInputStream(file);
+             ObjectInputStream ois = new ObjectInputStream(fis)) {
+
+            value = (GameContextHolder) ois.readObject();
+        } catch (IOException e) {
+            LOGGER.debug(e.getMessage());
+        }
+        return value;
     }
 }

@@ -23,11 +23,11 @@ public class CharacterSelectionMenuController extends AbstractController impleme
         switch ((CharacterSelectionMenuOptions) command) {
             case KNIGHT:
                 System.out.println("You have chosen a knight!");
-                gameContextManager.setPlayer(new Knight("Hero Name", Position.initial()));
+                gameContextManager.setPlayer(new Knight("Player1", Position.initial()));
                 return TRAVEL;
             case WIZARD:
                 System.out.println("You have chosen a wizard!");
-                gameContextManager.setPlayer(new Wizard("Hero Name", Position.initial()));
+                gameContextManager.setPlayer(new Wizard("Player1", Position.initial()));
                 return TRAVEL;
             default:
                 return MAIN_MENU;
