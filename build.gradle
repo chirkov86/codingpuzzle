@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'jacoco'
 }
 
 group 'com.achirkov'
@@ -15,3 +16,12 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile('org.mockito:mockito-core:2.21.0')
 }
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = false
+    }
+}
+
+check.dependsOn jacocoTestReport
