@@ -17,10 +17,6 @@ import static com.achirkov.codingpuzzle.game.GameState.NAME_SELECTION;
 
 public class CharacterSelectionMenuController extends AbstractController {
 
-//    public CharacterSelectionMenuController() {
-//        menu = new CharacterSelectionMenu();
-//    }
-
     @Override
     public GameState processCommand(MenuOption command, GameContextManager gameContextManager) {
         switch ((CharacterSelectionMenuOptions) command) {

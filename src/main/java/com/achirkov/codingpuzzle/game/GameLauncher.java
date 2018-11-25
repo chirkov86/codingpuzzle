@@ -8,7 +8,7 @@ public class GameLauncher {
     private ConsoleReader consoleReader = new ConsoleReader();
 
     /**
-     * Here is an extension point to plugin new gamesettings
+     * Here is an extension point to plugin new game settings
      */
     public void launchGame() {
         final GameContextManager gameContextManager = new GameContextManager(GameSetting.DUNGEON);
