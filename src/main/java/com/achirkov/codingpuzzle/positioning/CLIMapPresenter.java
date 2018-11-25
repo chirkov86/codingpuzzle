@@ -15,6 +15,7 @@ public class CLIMapPresenter implements MapPresenter {
                 if (gameMapManager.isPlayerPosition(x, y)) {
                     sb.append(BLUE_BOLD).append("P").append(ANSI_RESET).append(" ");
                 } else if (gameMapManager.isMonsterPosition(x, y)
+                        //TODO Utilize Optional
                         && gameMapManager.getEnemyAt(x, y).get().isAlive()
                         && gameMapManager.isPositionExplored(x, y)) {
                     sb.append(ANSI_RED).append("M").append(ANSI_RESET).append(" ");

@@ -170,8 +170,8 @@ public class GameMapManager {
         return isTreasurePosition(position.getX(), position.getY());
     }
 
-    //TODO Utilize Optional
     public Item takeTreasure(Position position) {
+        //TODO Utilize Optional
         Item treasure = getItems().stream().filter(item -> position.equals(item.getPosition())).findFirst().get();
         getItems().remove(treasure);
         return treasure;

@@ -7,15 +7,15 @@
 ### About
 This is a command line based role playing game.
 The game has following features:
-- a player can create a character :heavy_check_mark:
-- a player can explore the world :heavy_check_mark:
-- a player can gain experience through fighting :heavy_check_mark:
-- a player can save and resume a game :heavy_check_mark:
+- A player can create a character :heavy_check_mark:
+- A player can explore the world :heavy_check_mark:
+- A player can gain experience through fighting :heavy_check_mark:
+- A player can save and resume a game :heavy_check_mark:
 
 See examples below.
 
 ### Constraints
-- only plain Java except for tools for testing and building CI/CD pipelines
+- Only plain Java except for tools for testing and building CI/CD pipelines
 - CLI interface
 
 ### Features
@@ -25,9 +25,9 @@ See examples below.
 - Project is build with respect to agile engineering practices
 
 ### How-to run
-`$ git clone https://github.com/chirkov86/codingpuzzle.git`
-`$ cd codingpuzzle`
-`$ ./gradlew build`
+`$ git clone https://github.com/chirkov86/codingpuzzle.git`\
+`$ cd codingpuzzle`\
+`$ ./gradlew build`\
 `$ java -jar ./build/libs/codingpuzzle-1.0-SNAPSHOT.jar`
 
 ### Game process examples 
