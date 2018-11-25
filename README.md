@@ -12,9 +12,9 @@ The game has following features:
 See examples below.
 
 ### Game process examples 
-1. Creation:\n
-![Creation](images/Creation.png)
-2. Exploration:\n
-![Creation](images/Exploration.png)
-3. Fighting and gaining exp:\n
-![Creation](images/Fighting.png)
+1. Creation:\
+![Creation](images/Creation.png)\
+2. Exploration:\
+![Creation](images/Exploration.png)\
+3. Fighting and gaining exp:\
+![Creation](images/Fighting.png)\
