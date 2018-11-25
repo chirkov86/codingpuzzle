@@ -5,7 +5,6 @@ import com.achirkov.codingpuzzle.menus.Menu;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -20,8 +19,6 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class GameStateAwareInputValidatorTest {
 
-    @InjectMocks
-    private GameContextAwareInputValidator gameContextAwareInputValidator ;
     @Mock
     private GameState GameState;
     @Mock
@@ -33,7 +30,6 @@ public class GameStateAwareInputValidatorTest {
 
     @Before
     public void setup() {
-        gameContextAwareInputValidator = new GameContextAwareInputValidator();
 
         availableOptions = new ArrayList<>();
         availableOptions.add("1");
@@ -41,7 +37,7 @@ public class GameStateAwareInputValidatorTest {
         when(GameState.getStateMenu()).thenReturn(menu);
         when(menu.getPossibleOptionInputs()).thenReturn(availableOptions);
 
-        predicate = gameContextAwareInputValidator.getValidationPredicate(GameState);
+        predicate = GameContextAwareInputValidator.getValidationPredicate(GameState);
     }
 
     @Test

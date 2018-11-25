@@ -26,7 +26,7 @@ public class GameContextAwareInputValidator {
      */
     public static Predicate<String> getValidationPredicate(GameState GameState) {
         if (GameState.getStateMenu().getPossibleOptionInputs() != null) {
-            return input -> GameState.getStateMenu().getPossibleOptionInputs().stream().anyMatch(input::equalsIgnoreCase);
+            return input -> input != null && GameState.getStateMenu().getPossibleOptionInputs().stream().anyMatch(input::equalsIgnoreCase);
         } else return IS_ALPHANUMERIC;
     }
 }
