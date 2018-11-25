@@ -21,9 +21,9 @@ See examples below.
 ### Features
 - This project is MVP (Minimum Viable Product). Therefore it is not rich with features and not perfect in details
 - Project is supplied with instructions (this readme) 
-- Project is build with respect to agile engineering practices
+- Project is build with respect to agile engineering practices, see next chapter
 
-### Engineering practices
+### Engineering practices involved
 - :white_check_mark: Project is hosted on GitHub
 - :white_check_mark: CI pipeline is configured to build on each push
 - :white_check_mark: Project is covered with unit tests 
