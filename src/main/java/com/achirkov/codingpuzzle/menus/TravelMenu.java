@@ -13,13 +13,14 @@ public class TravelMenu extends AbstractMenu implements Menu {
         menuText.append("You are on the map\n");
         menuText.append("Use following options:\n");
         appendMenuItems(menuText);
-        menuText.append("Please enter your choice:..");
+//        menuText.append("Please enter your choice:..");
     }
 
     @Override
     public void show(GameContextManager gameContextManager) {
         System.out.println(menuText);
-        System.out.println("Your current location is: " + gameContextManager.getGameMapManager().getPlayerPosition().toString() + "\n");
+        System.out.println("Your current location is: " + gameContextManager.getGameMapManager().getPlayerPosition().toString());
         gameContextManager.getGameMapManager().print();
+        System.out.println("Please enter your choice:..");
     }
 }

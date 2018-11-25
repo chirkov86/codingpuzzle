@@ -13,5 +13,4 @@ public class CharacterSelectionMenu extends AbstractMenu implements Menu {
         appendMenuItems(menuText);
         menuText.append("Please enter your choice:..");
     }
-
 }

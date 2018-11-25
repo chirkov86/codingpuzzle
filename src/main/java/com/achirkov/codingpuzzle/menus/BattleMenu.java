@@ -8,6 +8,8 @@ import com.achirkov.codingpuzzle.menus.menuoptions.BattleMenuOptions;
 
 import java.util.Arrays;
 
+import static com.achirkov.codingpuzzle.io.ColorCodes.*;
+
 public class BattleMenu extends AbstractMenu implements Menu {
 
     public BattleMenu() {
@@ -32,10 +34,47 @@ public class BattleMenu extends AbstractMenu implements Menu {
         Player player = gameContextManager.getPlayer();
         Creature monster = gameContextManager.getGameMapManager().getEnemyAtCurrentPosition();
         StringBuilder sb = new StringBuilder();
-        sb.append("______|").append(IOUtils.padLeft(player.getName(), 15)).append("|").append(IOUtils.padLeft("Monster", 16)).append("\n");
-        sb.append(" Class|").append(IOUtils.padLeft(player.getCharacterClass(), 15)).append("|").append(IOUtils.padLeft(monster.getName(), 16)).append("\n");
-        sb.append("    HP|").append(IOUtils.padLeft(String.valueOf(player.getCurrentHitPoints()), 15)).append("|").append(IOUtils.padLeft(String.valueOf(monster.getCurrentHitPoints()), 16)).append("\n");
-        sb.append("Damage|").append(IOUtils.padLeft(player.getDamageInfo(), 15)).append("|").append(IOUtils.padLeft(monster.getDamageInfo(), 16)).append("\n");
+
+        sb.append("______|")
+                .append(ANSI_BLUE)
+                .append(IOUtils.padLeft(player.getName(), 15))
+                .append(ANSI_RESET)
+                .append("|")
+                .append(ANSI_RED)
+                .append(IOUtils.padLeft("Monster", 16))
+                .append(ANSI_RESET)
+                .append("\n");
+
+        sb.append(" Class|")
+                .append(ANSI_BLUE)
+                .append(IOUtils.padLeft(player.getCharacterClass(), 15))
+                .append(ANSI_RESET)
+                .append("|")
+                .append(ANSI_RED)
+                .append(IOUtils.padLeft(monster.getName(), 16))
+                .append(ANSI_RESET)
+                .append("\n");
+
+        sb.append("    HP|")
+                .append(ANSI_BLUE)
+                .append(IOUtils.padLeft(String.valueOf(player.getCurrentHitPoints()), 15))
+                .append(ANSI_RESET)
+                .append("|")
+                .append(ANSI_RED)
+                .append(IOUtils.padLeft(String.valueOf(monster.getCurrentHitPoints()), 16))
+                .append(ANSI_RESET)
+                .append("\n");
+
+        sb.append("Damage|")
+                .append(ANSI_BLUE)
+                .append(IOUtils.padLeft(player.getDamageInfo(), 15))
+                .append(ANSI_RESET)
+                .append("|")
+                .append(ANSI_RED)
+                .append(IOUtils.padLeft(monster.getDamageInfo(), 16))
+                .append(ANSI_RESET)
+                .append("\n");
+
         System.out.println(sb);
     }
 }

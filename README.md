@@ -1,10 +1,15 @@
 [![Build Status](https://travis-ci.org/chirkov86/codingpuzzle.svg?branch=master)](https://travis-ci.org/chirkov86/codingpuzzle)
 [![Coverage Status](https://codecov.io/gh/chirkov86/codingpuzzle/branch/master/graph/badge.svg)](https://codecov.io/gh/chirkov86/codingpuzzle)
 
-CLI RPG Game.
+## About
+This is a command line based role playing game.
+The game has following features:
+- a player can create a character :heavy_check_mark:
+- a player can explore the world :heavy_check_mark:
+- a player can gain experience through fighting :heavy_check_mark:
+- a player can save and resume a game :heavy_check_mark:
 
-Here are the stories:
-- As a player I want to create a character
-- As a player I want to explore
-- As a player I want to gain experience through fighting
-- As a player I want to save and resume a game
+
+![Creation](images/Creation.png)
+![Creation](images/Exploration.png)
+![Creation](images/Fighting.png)

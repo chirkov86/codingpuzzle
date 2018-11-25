@@ -6,5 +6,4 @@ public class NameSelectionMenu extends AbstractMenu implements Menu {
         menuText = new StringBuilder();
         menuText.append("Enter your name:.. ");
     }
-
 }
