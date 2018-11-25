@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/chirkov86/codingpuzzle.svg?branch=master)](https://travis-ci.org/chirkov86/codingpuzzle)
 [![Coverage Status](https://codecov.io/gh/chirkov86/codingpuzzle/branch/master/graph/badge.svg)](https://codecov.io/gh/chirkov86/codingpuzzle)
-[![Sonar Status](https://sonarcloud.io/api/project_badges/measure?project=chirkov86_codingpuzzle&metric=alert_status)](https://sonarcloud.io/api/project_badges/measure?project=chirkov86_codingpuzzle&metric=alert_status)
+[![Sonar Status](https://sonarcloud.io/api/project_badges/measure?project=chirkov86_codingpuzzle&metric=alert_status)](https://sonarcloud.io/dashboard?id=chirkov86_codingpuzzle)
 
 ## Command line based role playing game.
 
