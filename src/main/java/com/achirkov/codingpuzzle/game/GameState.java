@@ -44,5 +44,4 @@ public enum GameState {
         stateStateController.showReport(gameContextManager);
         stateStateController.showMenu(gameContextManager);
     }
-
 }

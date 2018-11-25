@@ -21,11 +21,6 @@ public enum BattleConfirmationMenuOptions implements MenuOption {
     }
 
     @Override
-    public int getIntValue() {
-        return intValue;
-    }
-
-    @Override
     public String getInput() {
         return input;
     }

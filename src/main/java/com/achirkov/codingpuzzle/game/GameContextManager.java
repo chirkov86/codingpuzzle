@@ -22,7 +22,7 @@ public class GameContextManager {
     private GameMapManager gameMapManager;
     private GameContextSerializer gameContextSerializer;
 
-    GameContextManager() {
+    public GameContextManager() {
         gameContextSerializer = new GameContextSerializer();
         init();
     }
@@ -102,9 +102,4 @@ public class GameContextManager {
     public void setPositionForFlee(Position positionForFlee) {
         this.positionForFlee = positionForFlee;
     }
-
-    public GameState getPrevGameState() {
-        return prevGameState;
-    }
-
 }

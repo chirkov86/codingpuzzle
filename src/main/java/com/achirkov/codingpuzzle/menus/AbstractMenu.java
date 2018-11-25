@@ -41,5 +41,4 @@ public abstract class AbstractMenu implements Menu {
                     .forEach(str -> input.append(str).append("\n"));
         }
     }
-
 }
