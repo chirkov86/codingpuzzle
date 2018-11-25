@@ -9,7 +9,12 @@ The game has following features:
 - a player can gain experience through fighting :heavy_check_mark:
 - a player can save and resume a game :heavy_check_mark:
 
+See examples below.
 
+### Game process examples 
+1. Creation:\n
 ![Creation](images/Creation.png)
+2. Exploration:\n
 ![Creation](images/Exploration.png)
+3. Fighting and gaining exp:\n
 ![Creation](images/Fighting.png)
