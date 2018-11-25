@@ -5,16 +5,14 @@ import com.achirkov.codingpuzzle.io.ConsoleReader;
 
 public class GameLauncher {
 
-    static final String GAME_NAME = "RPG Game";
-
     private ConsoleReader consoleReader = new ConsoleReader();
 
     /**
-     * Here is an extension point to plugin new game settings
+     * Here is an extension point to plugin new gamesettings
      */
     public void launchGame() {
-        //final GameContextManager gameContextManager = new GameContextManager(GameSetting.DUNGEON);
-        final GameContextManager gameContextManager = new GameContextManager(GameSetting.LOTR);
+        final GameContextManager gameContextManager = new GameContextManager(GameSetting.DUNGEON);
+        //final GameContextManager gameContextManager = new GameContextManager(GameSetting.LOTR);
 
         String command;
         while (gameContextManager.getGameState() != GameState.EXIT) {

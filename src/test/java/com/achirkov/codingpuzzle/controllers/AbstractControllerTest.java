@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 public class AbstractControllerTest {
 
     @InjectMocks
-    private AbstractController mainMenuController = new MainMenuController("");
+    private AbstractController mainMenuController = new MainMenuController();
 
     @Mock
     private GameContextManager gameContextManager;

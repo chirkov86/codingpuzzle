@@ -25,6 +25,11 @@ public enum GameSetting implements Serializable {
         public Function<Position, Item> getItemFactory() {
             return Treasure::new;
         }
+
+        @Override
+        public String getName() {
+            return "Dungeon explorer adventure";
+        }
     },
     LOTR {
         @Override
@@ -36,9 +41,14 @@ public enum GameSetting implements Serializable {
         public Function<Position, Item> getItemFactory() {
             return Treasure::new;
         }
+
+        @Override
+        public String getName() {
+            return "Lords of the Rings Adventure";
+        }
     },
     ;
 
     public abstract Function<Position, Creature> getCreatureFactory();
     public abstract Function<Position, Item> getItemFactory();
-}
+    public abstract String getName();}

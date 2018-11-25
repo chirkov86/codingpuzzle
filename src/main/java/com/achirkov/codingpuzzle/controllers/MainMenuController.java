@@ -13,8 +13,8 @@ import static com.achirkov.codingpuzzle.io.ColorCodes.ANSI_RESET;
 
 public class MainMenuController extends AbstractController {
 
-    public MainMenuController(String gameName) {
-        this.menu = new MainMenu(gameName);
+    public MainMenuController() {
+        this.menu = new MainMenu("");
     }
 
     @Override
@@ -34,6 +34,12 @@ public class MainMenuController extends AbstractController {
             default:
                 return MAIN_MENU;
         }
+    }
+
+    @Override
+    public void showMenu(GameContextManager gameContextManager) {
+        setMenu(new MainMenu(gameContextManager.getGameSetting().getName()));
+        super.showMenu(gameContextManager);
     }
 
     private GameState save(GameContextManager gameContextManager) {
