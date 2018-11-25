@@ -40,6 +40,11 @@ public class TravelMapController extends AbstractController implements StateCont
     private GameState tryMove(GameContextManager gameContextManager, Direction direction) {
         Position newPosition = gameContextManager.getGameMapManager().getPlayerPosition().getNewPositionToThe(direction);
 
+        if (!gameContextManager.getPlayer().isAlive()) {
+            System.out.println(ANSI_RED + "\n Hero is dead and can not move anymore!\n" + ANSI_RESET);
+            return TRAVEL;
+        }
+
         if (!gameContextManager.getGameMapManager().assertPositionIsValid(newPosition)) {
             System.out.println(ANSI_RED + "\n This move is not available!\n" + ANSI_RESET);
             return TRAVEL;

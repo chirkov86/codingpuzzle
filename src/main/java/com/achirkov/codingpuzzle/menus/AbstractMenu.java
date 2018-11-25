@@ -27,7 +27,7 @@ public abstract class AbstractMenu implements Menu {
     }
 
     @Override
-    public MenuOption getOptionFromCode(String input) {
+    public MenuOption getOptionFromInput(String input) {
         return menuOptions.stream()
                 .filter(menuOption -> menuOption.getInput().equalsIgnoreCase(input))
                 .findFirst()

@@ -23,10 +23,13 @@ public class GameContextAwareInputValidator {
      * Checks input string against current GameState, i.e. current menu.
      * Each menu contains a list of possible options mapped to corresponding input strings.
      * Input string must match at least one from the list.
+     * <p>
+     * If current state has no menu, then Input string must match a non-empty alphanumeric regexp.
      */
     public static Predicate<String> getValidationPredicate(GameState GameState) {
-        if (GameState.getStateMenu().getPossibleOptionInputs() != null) {
-            return input -> input != null && GameState.getStateMenu().getPossibleOptionInputs().stream().anyMatch(input::equalsIgnoreCase);
+        if (GameState.getStateMenu() != null && GameState.getStateMenu().getPossibleOptionInputs() != null) {
+            return input -> IS_NOT_BLANK.test(input)
+                    && GameState.getStateMenu().getPossibleOptionInputs().stream().anyMatch(input::equalsIgnoreCase);
         } else return IS_ALPHANUMERIC;
     }
 }

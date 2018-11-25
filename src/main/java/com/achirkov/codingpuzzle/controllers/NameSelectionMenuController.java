@@ -12,18 +12,7 @@ public class NameSelectionMenuController extends AbstractController implements S
 
     @Override
     public GameState processFreeFormInput(String input, GameContextManager gameContextManager) {
-        System.out.println("user set name " + input);
         gameContextManager.getPlayer().setName(input);
         return super.processFreeFormInput(input, gameContextManager);
-    }
-
-    @Override
-    public void showMenu(GameContextManager gameContextManager) {
-        super.showMenu(gameContextManager);
-    }
-
-    @Override
-    public void showReport(GameContextManager gameContextManager) {
-        super.showReport(gameContextManager);
     }
 }

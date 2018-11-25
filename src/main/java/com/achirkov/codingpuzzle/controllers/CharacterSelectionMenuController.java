@@ -32,10 +32,4 @@ public class CharacterSelectionMenuController extends AbstractController impleme
                 return MAIN_MENU;
         }
     }
-
-    @Override
-    public void showMenu(GameContextManager gameContextManager) {
-
-        super.showMenu(gameContextManager);
-    }
 }

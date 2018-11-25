@@ -27,7 +27,7 @@ public class GameContextSerializer {
         }
     }
 
-    public GameContextHolder deserializeContext() throws ClassNotFoundException {
+    public GameContextHolder deserializeContext() throws SaveGameNotFoundException {
         File file = new File("savegames/savegame");
         GameContextHolder contextHolder = null;
 
@@ -38,8 +38,9 @@ public class GameContextSerializer {
              ObjectInputStream ois = new ObjectInputStream(fis)) {
 
             contextHolder = (GameContextHolder) ois.readObject();
-        } catch (IOException e) {
+        } catch (ClassNotFoundException | IOException e) {
             LOGGER.debug(e.getMessage());
+            throw new SaveGameNotFoundException("Savegame file not found!");
         }
         return contextHolder;
     }

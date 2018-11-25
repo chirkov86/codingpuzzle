@@ -12,6 +12,9 @@ public class MapGenerator {
         this.random = new Random();
     }
 
+    /**
+     * Creates a set of creatures in a random not occupied cells
+     */
     void randomlyFillMapWithCreatures(GameMapManager gameMapManager) {
 
         //TODO adapt method to scale up number of monsters with map size
@@ -20,6 +23,9 @@ public class MapGenerator {
         }
     }
 
+    /**
+     * Creates a creature in a random not occupied cell
+     */
     private void randomlyFillMapWithCreature(GameMapManager gameMapManager) {
         int dimension = gameMapManager.getDimension();
         Position position;
@@ -34,7 +40,7 @@ public class MapGenerator {
         gameMapManager.getEnemies().add(new Skeleton(position));
     }
 
-    // TODO optimize this
+    // TODO optimize this, currently is stupid O(n^2) each time
     public void fillFogOfWar(GameMapManager gameMapManager) {
         int dimension = gameMapManager.getGameMap().getDimension();
         boolean[][] fogOfWar = gameMapManager.getGameMap().getFogOfWar();

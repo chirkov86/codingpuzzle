@@ -4,7 +4,7 @@ import com.achirkov.codingpuzzle.io.ConsoleReader;
 
 public class GameLauncher {
 
-    private static final String GAME_NAME = "RPG Game";
+    static final String GAME_NAME = "RPG Game";
 
     private ConsoleReader consoleReader = new ConsoleReader();
 

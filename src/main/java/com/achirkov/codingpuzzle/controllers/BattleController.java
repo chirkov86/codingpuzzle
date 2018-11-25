@@ -9,6 +9,7 @@ import com.achirkov.codingpuzzle.menus.menuoptions.BattleMenuOptions;
 import com.achirkov.codingpuzzle.menus.menuoptions.MenuOption;
 
 import static com.achirkov.codingpuzzle.game.GameState.*;
+import static com.achirkov.codingpuzzle.io.ColorCodes.*;
 
 public class BattleController extends AbstractController implements StateController {
 
@@ -30,6 +31,7 @@ public class BattleController extends AbstractController implements StateControl
     }
 
     private GameState fleeToPrevPosition(GameContextManager gameContextManager) {
+        //TODO add penalty
         System.out.println("You have cowardly fled from the battle");
         gameContextManager.getGameMapManager().setPlayerPosition(gameContextManager.getPositionForFlee());
         gameContextManager.setPositionForFlee(null);
@@ -39,24 +41,42 @@ public class BattleController extends AbstractController implements StateControl
     private GameState tryAttack(GameContextManager gameContextManager) {
         Creature enemy = gameContextManager.getGameMapManager().getEnemyAtCurrentPosition();
         Player player = gameContextManager.getPlayer();
+        StringBuilder battleLog;
 
         int playerAttack = player.attack();
         enemy.decreaseHitPointsBy(playerAttack);
-        System.out.println("Player attacked a " + enemy.getName() + " for " + playerAttack + " hitpoints");
+        battleLog = new StringBuilder(ANSI_BLUE)
+                .append("Player attacked a ")
+                .append(enemy.getName())
+                .append(" for ")
+                .append(playerAttack)
+                .append(" hitpoints")
+                .append(ANSI_RESET);
+        System.out.println(battleLog);
 
         if (enemy.isAlive()) {
             int enemyAttack = enemy.attack();
             player.decreaseHitPointsBy(enemyAttack);
-            System.out.println(enemy.getName() + " attacked a player for " + enemyAttack + " hitpoints");
+            battleLog = new StringBuilder(ANSI_RED)
+                    .append(enemy.getName())
+                    .append(" attacked a player for ")
+                    .append(enemyAttack)
+                    .append(" hitpoints")
+                    .append(ANSI_RESET);
+            System.out.println(battleLog);
             if (player.isAlive()) {
                 System.out.println("Next round!");
                 return BATTLE;
             } else {
-                System.out.println("Player has died");
+                battleLog = new StringBuilder().append(ANSI_RED).append("Player has died").append(ANSI_RESET);
+                System.out.println(battleLog);
                 return DEATH;
             }
         } else {
-            System.out.println(enemy.getName() + " has died");
+            battleLog = new StringBuilder()
+                    .append(enemy.getName())
+                    .append(" has died");
+            System.out.println(battleLog);
             return VICTORY;
         }
     }

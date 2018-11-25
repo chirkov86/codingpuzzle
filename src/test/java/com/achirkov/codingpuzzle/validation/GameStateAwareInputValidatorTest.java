@@ -1,11 +1,9 @@
 package com.achirkov.codingpuzzle.validation;
 
 import com.achirkov.codingpuzzle.game.GameState;
-import com.achirkov.codingpuzzle.menus.Menu;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
@@ -14,15 +12,11 @@ import java.util.function.Predicate;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class GameStateAwareInputValidatorTest {
 
-    @Mock
-    private GameState GameState;
-    @Mock
-    private Menu menu;
+    private GameState gameState;
 
     private List<String> availableOptions;
 
@@ -30,14 +24,11 @@ public class GameStateAwareInputValidatorTest {
 
     @Before
     public void setup() {
-
+        gameState = GameState.MAIN_MENU;
         availableOptions = new ArrayList<>();
         availableOptions.add("1");
         availableOptions.add("2");
-        when(GameState.getStateMenu()).thenReturn(menu);
-        when(menu.getPossibleOptionInputs()).thenReturn(availableOptions);
-
-        predicate = GameContextAwareInputValidator.getValidationPredicate(GameState);
+        predicate = GameContextAwareInputValidator.getValidationPredicate(gameState);
     }
 
     @Test

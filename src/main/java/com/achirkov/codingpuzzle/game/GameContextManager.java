@@ -1,6 +1,7 @@
 package com.achirkov.codingpuzzle.game;
 
 import com.achirkov.codingpuzzle.creatures.Player;
+import com.achirkov.codingpuzzle.exceptions.SaveGameNotFoundException;
 import com.achirkov.codingpuzzle.logger.Logger;
 import com.achirkov.codingpuzzle.positioning.GameMapManager;
 import com.achirkov.codingpuzzle.positioning.Position;
@@ -27,13 +28,14 @@ public class GameContextManager {
         gameContextSerializer.serializeContext(new GameContextHolder(player, getGameMapManager().getGameMap()));
     }
 
-    public void load() {
+    public void load() throws SaveGameNotFoundException {
 
         GameContextHolder contextHolder = null;
         try {
             contextHolder = gameContextSerializer.deserializeContext();
-        } catch (ClassNotFoundException e) {
+        } catch (SaveGameNotFoundException e) {
             LOGGER.debug(e.getMessage());
+            throw e;
         }
         if (contextHolder != null && contextHolder.getPlayer() != null && contextHolder.getGameMap() != null) {
             setPlayer(contextHolder.getPlayer());

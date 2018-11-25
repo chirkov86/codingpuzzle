@@ -11,5 +11,5 @@ public interface Menu {
 
     List<String> getPossibleOptionInputs();
 
-    MenuOption getOptionFromCode(String input);
+    MenuOption getOptionFromInput(String input);
 }

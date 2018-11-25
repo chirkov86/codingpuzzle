@@ -3,10 +3,14 @@ package com.achirkov.codingpuzzle.positioning;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * Data object class. Effectively immutable
+ * Is used to save game.
+ */
 public class Position implements Serializable  {
 
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
 
     public Position(int x, int y) {
         this.x = x;
@@ -21,6 +25,9 @@ public class Position implements Serializable  {
         return y;
     }
 
+    /**
+     * @return a new {@code Position} instance which is adjacent to this on the given direction
+     */
     public Position getNewPositionToThe(Direction direction) {
         switch (direction) {
             case NORTH:

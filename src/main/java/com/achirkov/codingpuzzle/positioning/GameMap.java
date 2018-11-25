@@ -6,7 +6,8 @@ import java.io.Serializable;
 import java.util.Collection;
 
 /**
- * Data object class
+ * Data object class.
+ * Is used to save game.
  */
 public class GameMap implements Serializable {
     private int dimension;

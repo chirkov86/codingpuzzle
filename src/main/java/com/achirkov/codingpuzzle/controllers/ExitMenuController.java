@@ -15,8 +15,6 @@ public class ExitMenuController extends AbstractController implements StateContr
 
     @Override
     public GameState processCommand(MenuOption command, GameContextManager gameContextManager) {
-
         return EXIT;
     }
-
 }
