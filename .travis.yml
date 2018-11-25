@@ -10,7 +10,7 @@ script:
 before_install:
  - chmod +x gradlew
 
-jdk: oraclejdk8
+jdk: openjdk8
 
 sudo: false
 
