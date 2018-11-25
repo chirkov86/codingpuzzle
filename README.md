@@ -1,7 +1,9 @@
 [![Build Status](https://travis-ci.org/chirkov86/codingpuzzle.svg?branch=master)](https://travis-ci.org/chirkov86/codingpuzzle)
 [![Coverage Status](https://codecov.io/gh/chirkov86/codingpuzzle/branch/master/graph/badge.svg)](https://codecov.io/gh/chirkov86/codingpuzzle)
 
-## About
+## Command line based role playing game.
+
+### About
 This is a command line based role playing game.
 The game has following features:
 - a player can create a character :heavy_check_mark:
@@ -21,6 +23,11 @@ See examples below.
 - Project is supplied with instructions (this readme) 
 - Project is build with respect to agile engineering practices
 
+### How-to run
+`$ git clone https://github.com/chirkov86/codingpuzzle.git`
+`$ cd codingpuzzle`
+`$ ./gradlew build`
+`$ java -jar ./build/libs/codingpuzzle-1.0-SNAPSHOT.jar`
 
 ### Game process examples 
 1. Creation:\
@@ -29,3 +36,4 @@ See examples below.
 ![Creation](images/Exploration.png)\
 3. Fighting and gaining exp:\
 ![Creation](images/Fighting.png)\
+

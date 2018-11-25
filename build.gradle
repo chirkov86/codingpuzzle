@@ -3,6 +3,14 @@ plugins {
     id 'jacoco'
 }
 
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.achirkov.codingpuzzle.Main'
+        )
+    }
+}
+
 group 'com.achirkov'
 version '1.0-SNAPSHOT'
 
