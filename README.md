@@ -23,6 +23,11 @@ See examples below.
 - Project is supplied with instructions (this readme) 
 - Project is build with respect to agile engineering practices
 
+### How-to run
+`$ git clone https://github.com/chirkov86/codingpuzzle.git`
+`$ cd codingpuzzle`
+`$ ./gradlew build`
+`$ java -jar ./build/libs/codingpuzzle-1.0-SNAPSHOT.jar`
 
 ### Game process examples 
 1. Creation:\
@@ -32,8 +37,3 @@ See examples below.
 3. Fighting and gaining exp:\
 ![Creation](images/Fighting.png)\
 
-### How-to install and run
-`$ git clone https://github.com/chirkov86/codingpuzzle.git`
-`$ cd codingpuzzle`
-`$ ./gradlew build`
-`$ java -jar ./build/libs/codingpuzzle-1.0-SNAPSHOT.jar`
