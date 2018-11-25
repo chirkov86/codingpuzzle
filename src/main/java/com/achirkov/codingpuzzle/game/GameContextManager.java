@@ -108,4 +108,8 @@ public class GameContextManager {
     public void setPositionForFlee(Position positionForFlee) {
         this.positionForFlee = positionForFlee;
     }
+
+    public GameSetting getGameSetting() {
+        return gameSetting;
+    }
 }

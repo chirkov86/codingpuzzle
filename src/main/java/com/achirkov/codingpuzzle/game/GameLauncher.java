@@ -9,8 +9,12 @@ public class GameLauncher {
 
     private ConsoleReader consoleReader = new ConsoleReader();
 
+    /**
+     * Here is an extension point to plugin new game settings
+     */
     public void launchGame() {
-        final GameContextManager gameContextManager = new GameContextManager(GameSetting.DUNGEON);
+        //final GameContextManager gameContextManager = new GameContextManager(GameSetting.DUNGEON);
+        final GameContextManager gameContextManager = new GameContextManager(GameSetting.LOTR);
 
         String command;
         while (gameContextManager.getGameState() != GameState.EXIT) {

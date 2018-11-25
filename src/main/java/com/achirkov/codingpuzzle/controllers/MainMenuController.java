@@ -37,7 +37,7 @@ public class MainMenuController extends AbstractController implements StateContr
     }
 
     private GameState save(GameContextManager gameContextManager) {
-        if (gameContextManager.getPlayer() != null) {
+        if (gameContextManager.getPlayer() != null && gameContextManager.getPlayer().isAlive()) {
             gameContextManager.save();
             System.out.println("Game saved!");
             return TRAVEL;
@@ -69,7 +69,7 @@ public class MainMenuController extends AbstractController implements StateContr
                 return TRAVEL;
             } catch (SaveGameNotFoundException e) {
                 System.out.println(new StringBuilder().append(ANSI_RED)
-                        .append("\n Savegame not found! You may start a new adventure\n")
+                        .append("\n Saved game not found! You may start a new adventure\n")
                         .append(ANSI_RESET).toString());
                 return MAIN_MENU;
             }

@@ -11,7 +11,8 @@ import java.io.Serializable;
 import java.util.function.Function;
 
 /**
- * Each game setting provides a suppliers for enemies, items and heroes.
+ * {@code GameSetting} is an extension point to introduce new game stories.
+ * Each game setting provides a suppliers for enemies, items and heroes(todo).
  */
 public enum GameSetting implements Serializable {
     DUNGEON {

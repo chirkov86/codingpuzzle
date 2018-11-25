@@ -6,8 +6,9 @@ import java.util.Arrays;
 
 public class CharacterSelectionMenu extends AbstractMenu implements Menu {
 
-    public CharacterSelectionMenu() {
-        menuOptions = Arrays.asList(CharacterSelectionMenuOptions.values());
+    public CharacterSelectionMenu(CharacterSelectionMenuOptions[] options) {
+//        menuOptions = Arrays.asList(CharacterSelectionMenuOptions.values());
+        menuOptions = Arrays.asList(options);
         menuText = new StringBuilder();
         menuText.append("Pick up your character:\n");
         appendMenuItems(menuText);

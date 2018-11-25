@@ -51,6 +51,12 @@ public abstract class AbstractController implements StateController {
         return menu;
     }
 
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
+
+
     @Override
     public void showMenu(GameContextManager gameContextManager) {
         if (menu != null) {

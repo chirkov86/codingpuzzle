@@ -26,6 +26,7 @@ public enum GameState {
     DEATH(new DeathMenuController()),
     ;
 
+    GameContextManager gameContextManager;
     StateController stateStateController;
 
     GameState(StateController stateStateController) {
