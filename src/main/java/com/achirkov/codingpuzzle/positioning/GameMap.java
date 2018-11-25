@@ -1,6 +1,7 @@
 package com.achirkov.codingpuzzle.positioning;
 
 import com.achirkov.codingpuzzle.creatures.Creature;
+import com.achirkov.codingpuzzle.items.Item;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -13,12 +14,14 @@ public class GameMap implements Serializable {
     private int dimension;
     private boolean fogOfWar[][];
     private Collection<Creature> enemies;
+    private Collection<Item> treasures;
     private Position playerPosition;
 
-    public GameMap(int dimension, Collection<Creature> enemies, Position playerPosition) {
+    public GameMap(int dimension, Collection<Creature> enemies, Collection<Item> treasures, Position playerPosition) {
         this.dimension = dimension;
         this.fogOfWar = new boolean[dimension][dimension];
         this.enemies = enemies;
+        this.treasures = treasures;
         this.playerPosition = playerPosition;
     }
 
@@ -52,5 +55,13 @@ public class GameMap implements Serializable {
 
     public void setFogOfWar(boolean[][] fogOfWar) {
         this.fogOfWar = fogOfWar;
+    }
+
+    public Collection<Item> getTreasures() {
+        return treasures;
+    }
+
+    public void setTreasures(Collection<Item> treasures) {
+        this.treasures = treasures;
     }
 }

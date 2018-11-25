@@ -1,6 +1,7 @@
 package com.achirkov.codingpuzzle.game;
 
 import com.achirkov.codingpuzzle.creatures.Knight;
+import com.achirkov.codingpuzzle.gamesetting.GameSetting;
 import com.achirkov.codingpuzzle.positioning.Position;
 import org.junit.After;
 import org.junit.Before;
@@ -14,7 +15,7 @@ public class GameContextManagerTest {
 
     @Before
     public void setUp() throws Exception {
-        gameContextManager = new GameContextManager();
+        gameContextManager = new GameContextManager(GameSetting.DUNGEON);
         gameContextManager.setPlayer(new Knight("Player1", Position.initial()));
     }
 

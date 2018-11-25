@@ -1,15 +1,18 @@
 package com.achirkov.codingpuzzle.positioning;
 
-import com.achirkov.codingpuzzle.creatures.Skeleton;
+import com.achirkov.codingpuzzle.creatures.Creature;
+import com.achirkov.codingpuzzle.gamesetting.GameSetting;
 
 import java.util.Random;
 
 public class MapGenerator {
 
     private final Random random;
+    private final GameSetting gameSetting;
 
-    public MapGenerator() {
+    public MapGenerator(GameSetting gameSetting) {
         this.random = new Random();
+        this.gameSetting = gameSetting;
     }
 
     /**
@@ -37,7 +40,7 @@ public class MapGenerator {
             position = new Position(x, y);
         } while (gameMapManager.isMonsterPosition(x, y) || gameMapManager.isPlayerPosition(x, y));
 
-        gameMapManager.getEnemies().add(new Skeleton(position));
+        gameMapManager.getEnemies().add(createRandomCreature(gameSetting, position));
     }
 
     // TODO optimize this, currently is stupid O(n^2) each time
@@ -50,5 +53,25 @@ public class MapGenerator {
             }
         }
         gameMapManager.clearFogOfWarInObservablePositions();
+    }
+
+    private Creature createRandomCreature(GameSetting gameSetting, Position position) {
+
+        return gameSetting.getCreatureFactory().apply(position);
+    }
+
+    //TODO currently adds only 1 treasure
+    public void randomlyFillMapWithTreasures(GameMapManager gameMapManager) {
+        int dimension = gameMapManager.getDimension();
+        Position position;
+        int x;
+        int y;
+        do {
+            x = random.nextInt(dimension);
+            y = random.nextInt(dimension);
+            position = new Position(x, y);
+        } while (gameMapManager.isMonsterPosition(x, y) || gameMapManager.isPlayerPosition(x, y));
+
+        gameMapManager.getGameMap().getTreasures().add(gameSetting.getItemFactory().apply(position));
     }
 }

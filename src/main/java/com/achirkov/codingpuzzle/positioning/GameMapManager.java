@@ -2,6 +2,8 @@ package com.achirkov.codingpuzzle.positioning;
 
 import com.achirkov.codingpuzzle.creatures.Creature;
 import com.achirkov.codingpuzzle.exceptions.CreatureNotFoundException;
+import com.achirkov.codingpuzzle.gamesetting.GameSetting;
+import com.achirkov.codingpuzzle.items.Item;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -13,19 +15,23 @@ public class GameMapManager {
     private GameMap gameMap;
     private MapPresenter mapPresenter;
     private MapGenerator mapGenerator;
+    private GameSetting gameSetting;
 
-    public GameMapManager(int dimension) {
-        this.gameMap = new GameMap(dimension, new LinkedList<>(), Position.initial());
+    public GameMapManager(int dimension, GameSetting gameSetting) {
+        this.gameMap = new GameMap(dimension, new LinkedList<>(), new LinkedList<>(), Position.initial());
         this.mapPresenter = new CLIMapPresenter();
-        this.mapGenerator = new MapGenerator();
+        this.mapGenerator = new MapGenerator(gameSetting);
+        this.gameSetting = gameSetting;
+        //TODO need to generify both fillers
         mapGenerator.randomlyFillMapWithCreatures(this);
+        mapGenerator.randomlyFillMapWithTreasures(this);
         mapGenerator.fillFogOfWar(this);
     }
 
-    public GameMapManager(GameMap gameMap) {
+    public GameMapManager(GameMap gameMap, GameSetting gameSetting) {
         this.gameMap = gameMap;
         this.mapPresenter = new CLIMapPresenter();
-        this.mapGenerator = new MapGenerator();
+        this.mapGenerator = new MapGenerator(gameSetting);
     }
 
     public Collection<Creature> getEnemies() {
@@ -147,5 +153,27 @@ public class GameMapManager {
 
     public boolean isPositionExplored(int x, int y) {
         return !getGameMap().getFogOfWar()[x][y];
+    }
+
+    public boolean isTreasurePosition(int x, int y) {
+        Position p = new Position(x, y);
+        return getItems().stream()
+                .map(Item::getPosition)
+                .anyMatch(p::equals);
+    }
+
+    private Collection<Item> getItems() {
+        return gameMap.getTreasures();
+    }
+
+    public boolean isTreasurePosition(Position position) {
+        return isTreasurePosition(position.getX(), position.getY());
+    }
+
+    //TODO Utilize Optional
+    public Item takeTreasure(Position position) {
+        Item treasure = getItems().stream().filter(item -> position.equals(item.getPosition())).findFirst().get();
+        getItems().remove(treasure);
+        return treasure;
     }
 }

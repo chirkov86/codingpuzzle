@@ -1,6 +1,7 @@
 package com.achirkov.codingpuzzle.save;
 
 import com.achirkov.codingpuzzle.creatures.Player;
+import com.achirkov.codingpuzzle.gamesetting.GameSetting;
 import com.achirkov.codingpuzzle.positioning.GameMap;
 
 import java.io.Serializable;
@@ -12,10 +13,12 @@ public class GameContextHolder implements Serializable {
 
     private Player player;
     private GameMap gameMap;
+    private GameSetting gameSetting;
 
-    public GameContextHolder(Player player, GameMap gameMap) {
+    public GameContextHolder(Player player, GameMap gameMap, GameSetting gameSetting) {
         this.player = player;
         this.gameMap = gameMap;
+        this.gameSetting = gameSetting;
     }
 
     public Player getPlayer() {
@@ -33,4 +36,14 @@ public class GameContextHolder implements Serializable {
     public void setGameMap(GameMap gameMap) {
         this.gameMap = gameMap;
     }
+
+
+    public GameSetting getGameSetting() {
+        return gameSetting;
+    }
+
+    public void setGameSetting(GameSetting gameSetting) {
+        this.gameSetting = gameSetting;
+    }
+
 }

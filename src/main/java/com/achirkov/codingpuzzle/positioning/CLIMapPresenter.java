@@ -18,6 +18,9 @@ public class CLIMapPresenter implements MapPresenter {
                         && gameMapManager.getEnemyAt(x, y).get().isAlive()
                         && gameMapManager.isPositionExplored(x, y)) {
                     sb.append(ANSI_RED).append("M").append(ANSI_RESET).append(" ");
+                } else if (gameMapManager.isTreasurePosition(x, y)
+                        && gameMapManager.isPositionExplored(x, y)) {
+                    sb.append(ANSI_YELLOW).append("G").append(ANSI_RESET).append(" ");
                 } else if (gameMapManager.isPositionExplored(x, y)) {
                     sb.append(WHITE_BACKGROUND).append("_").append(" ").append(ANSI_RESET);
                 } else {

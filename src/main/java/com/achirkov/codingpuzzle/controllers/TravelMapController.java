@@ -2,6 +2,7 @@ package com.achirkov.codingpuzzle.controllers;
 
 import com.achirkov.codingpuzzle.game.GameContextManager;
 import com.achirkov.codingpuzzle.game.GameState;
+import com.achirkov.codingpuzzle.items.Item;
 import com.achirkov.codingpuzzle.menus.TravelMenu;
 import com.achirkov.codingpuzzle.menus.menuoptions.MenuOption;
 import com.achirkov.codingpuzzle.menus.menuoptions.TravelMenuOptions;
@@ -9,8 +10,7 @@ import com.achirkov.codingpuzzle.positioning.Direction;
 import com.achirkov.codingpuzzle.positioning.Position;
 
 import static com.achirkov.codingpuzzle.game.GameState.*;
-import static com.achirkov.codingpuzzle.io.ColorCodes.ANSI_RED;
-import static com.achirkov.codingpuzzle.io.ColorCodes.ANSI_RESET;
+import static com.achirkov.codingpuzzle.io.ColorCodes.*;
 
 public class TravelMapController extends AbstractController implements StateController {
 
@@ -56,6 +56,15 @@ public class TravelMapController extends AbstractController implements StateCont
             return BATTLE_CONFIRMATION;
         }
         gameContextManager.getGameMapManager().setPlayerPosition(newPosition);
+        if (gameContextManager.getGameMapManager().isTreasurePosition(newPosition)) {
+            Item treasure = gameContextManager.getGameMapManager().takeTreasure(newPosition);
+            gameContextManager.getPlayer().increaseMoney(treasure.getValue());
+            System.out.println(new StringBuilder().append(ANSI_YELLOW)
+                    .append("\n Congratulations! You have found a treasure worth of ")
+                    .append(treasure.getValue())
+                    .append(" gold coins!\n")
+                    .append(ANSI_RESET));
+        }
         return TRAVEL;
     }
 }

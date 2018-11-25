@@ -1,6 +1,7 @@
 package com.achirkov.codingpuzzle.menus;
 
 import com.achirkov.codingpuzzle.game.GameContextManager;
+import com.achirkov.codingpuzzle.gamesetting.GameSetting;
 import com.achirkov.codingpuzzle.menus.menuoptions.MenuOption;
 import org.junit.After;
 import org.junit.Before;
@@ -15,7 +16,7 @@ import static org.junit.Assert.assertNotNull;
 public class AbstractMenuTest {
 
     private AbstractMenu menu = new MainMenu("test");
-    private GameContextManager gameContextManager = new GameContextManager();
+    private GameContextManager gameContextManager = new GameContextManager(GameSetting.DUNGEON);
 
     @Before
     public void setUp() throws Exception {

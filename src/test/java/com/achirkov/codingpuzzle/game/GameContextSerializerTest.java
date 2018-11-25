@@ -2,6 +2,7 @@ package com.achirkov.codingpuzzle.game;
 
 import com.achirkov.codingpuzzle.creatures.Knight;
 import com.achirkov.codingpuzzle.creatures.Player;
+import com.achirkov.codingpuzzle.gamesetting.GameSetting;
 import com.achirkov.codingpuzzle.positioning.GameMapManager;
 import com.achirkov.codingpuzzle.positioning.Position;
 import com.achirkov.codingpuzzle.save.GameContextHolder;
@@ -26,8 +27,8 @@ public class GameContextSerializerTest {
     public void setUp() throws Exception {
         gameContextSerializer = new GameContextSerializer();
         player = new Knight("testName", Position.initial());
-        gameMapManager = new GameMapManager(5);
-        gameContextHolder = new GameContextHolder(player, gameMapManager.getGameMap());
+        gameMapManager = new GameMapManager(5, GameSetting.DUNGEON);
+        gameContextHolder = new GameContextHolder(player, gameMapManager.getGameMap(), GameSetting.DUNGEON);
     }
 
     @Test

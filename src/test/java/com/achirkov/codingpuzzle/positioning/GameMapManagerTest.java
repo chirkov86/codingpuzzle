@@ -1,5 +1,6 @@
 package com.achirkov.codingpuzzle.positioning;
 
+import com.achirkov.codingpuzzle.gamesetting.GameSetting;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -10,7 +11,7 @@ import static org.junit.Assert.assertNotNull;
 @RunWith(MockitoJUnitRunner.class)
 public class GameMapManagerTest {
 
-    private GameMapManager gameMapManager = new GameMapManager(3);
+    private GameMapManager gameMapManager = new GameMapManager(3, GameSetting.DUNGEON);
 
     @Test
     public void assertPositionIsValid() {

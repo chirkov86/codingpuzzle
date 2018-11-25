@@ -1,5 +1,6 @@
 package com.achirkov.codingpuzzle.positioning;
 
+import com.achirkov.codingpuzzle.gamesetting.GameSetting;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,7 +12,7 @@ public class CLIMapPresenterTest {
     @Before
     public void setUp() throws Exception {
         cliMapPresenter = new CLIMapPresenter();
-        gameMapManager = new GameMapManager(2);
+        gameMapManager = new GameMapManager(2, GameSetting.DUNGEON);
     }
 
     @Test

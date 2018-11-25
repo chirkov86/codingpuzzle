@@ -11,6 +11,17 @@ The game has following features:
 
 See examples below.
 
+### Constraints
+- only plain Java except for tools for testing and building CI/CD pipelines
+- CLI interface
+
+### Features
+- This project is MVP (Minimum Viable Product). Therefore it is not rich with features and not perfect in details
+- Project is covered with unit tests. Code coverage plugin is included (see on the top of the page)
+- Project is supplied with instructions (this readme) 
+- Project is build with respect to agile engineering practices
+
+
 ### Game process examples 
 1. Creation:\
 ![Creation](images/Creation.png)\

@@ -2,6 +2,7 @@ package com.achirkov.codingpuzzle.game;
 
 import com.achirkov.codingpuzzle.creatures.Player;
 import com.achirkov.codingpuzzle.exceptions.SaveGameNotFoundException;
+import com.achirkov.codingpuzzle.gamesetting.GameSetting;
 import com.achirkov.codingpuzzle.logger.Logger;
 import com.achirkov.codingpuzzle.positioning.GameMapManager;
 import com.achirkov.codingpuzzle.positioning.Position;
@@ -21,8 +22,10 @@ public class GameContextManager {
     private Position positionForFlee;
     private GameMapManager gameMapManager;
     private GameContextSerializer gameContextSerializer;
+    private GameSetting gameSetting;
 
-    public GameContextManager() {
+    public GameContextManager(GameSetting gameSetting) {
+        this.gameSetting = gameSetting;
         gameContextSerializer = new GameContextSerializer();
         init();
     }
@@ -31,23 +34,26 @@ public class GameContextManager {
      * Method to save a game
      */
     public void save() {
-        gameContextSerializer.serializeContext(new GameContextHolder(player, getGameMapManager().getGameMap()));
+        gameContextSerializer.serializeContext(new GameContextHolder(player, getGameMapManager().getGameMap(), gameSetting));
     }
 
     /**
      * Method to load game from a file
      */
     public void load() throws SaveGameNotFoundException {
-        GameContextHolder contextHolder = null;
+        GameContextHolder contextHolder;
         try {
             contextHolder = gameContextSerializer.deserializeContext();
         } catch (SaveGameNotFoundException e) {
             LOGGER.debug(e.getMessage());
             throw e;
         }
-        if (contextHolder != null && contextHolder.getPlayer() != null && contextHolder.getGameMap() != null) {
+        if (contextHolder != null
+                && contextHolder.getPlayer() != null
+                && contextHolder.getGameMap() != null
+                && contextHolder.getGameSetting() != null) {
             setPlayer(contextHolder.getPlayer());
-            gameMapManager = new GameMapManager(contextHolder.getGameMap());
+            gameMapManager = new GameMapManager(contextHolder.getGameMap(), contextHolder.getGameSetting());
         }
     }
 
@@ -56,7 +62,7 @@ public class GameContextManager {
      */
     public void init() {
         gameState = GameState.MAIN_MENU;
-        gameMapManager = new GameMapManager(6);
+        gameMapManager = new GameMapManager(6, gameSetting);
     }
 
     public GameMapManager getGameMapManager() {
