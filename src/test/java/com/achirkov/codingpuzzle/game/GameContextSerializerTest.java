@@ -4,6 +4,8 @@ import com.achirkov.codingpuzzle.creatures.Knight;
 import com.achirkov.codingpuzzle.creatures.Player;
 import com.achirkov.codingpuzzle.positioning.GameMapManager;
 import com.achirkov.codingpuzzle.positioning.Position;
+import com.achirkov.codingpuzzle.save.GameContextHolder;
+import com.achirkov.codingpuzzle.save.GameContextSerializer;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

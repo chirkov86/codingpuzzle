@@ -1,11 +1,14 @@
-package com.achirkov.codingpuzzle.game;
+package com.achirkov.codingpuzzle.save;
 
 import com.achirkov.codingpuzzle.creatures.Player;
 import com.achirkov.codingpuzzle.positioning.GameMap;
 
 import java.io.Serializable;
 
-class GameContextHolder implements Serializable {
+/**
+ * Data class to enclose the game state to be serialized
+ */
+public class GameContextHolder implements Serializable {
 
     private Player player;
     private GameMap gameMap;

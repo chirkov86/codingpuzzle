@@ -5,6 +5,7 @@ import static com.achirkov.codingpuzzle.io.ColorCodes.*;
 public class CLIMapPresenter implements MapPresenter {
 
     @Override
+    // TODO optimize: re-use pre-constructed StringBuilder
     public void printMap(GameMapManager gameMapManager) {
         StringBuilder sb = new StringBuilder();
         int dimension = gameMapManager.getDimension();

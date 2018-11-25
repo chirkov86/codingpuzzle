@@ -1,10 +1,15 @@
-package com.achirkov.codingpuzzle.game;
+package com.achirkov.codingpuzzle.save;
 
 import com.achirkov.codingpuzzle.exceptions.SaveGameNotFoundException;
 import com.achirkov.codingpuzzle.logger.Logger;
 
 import java.io.*;
 
+/**
+ * Saves game state enclosed inside {@code GameContextHolder} to filesystem.
+ * Because it uses simple byte stream serialization of the class objects,
+ * deserialization may fail if corresponding classes have changed.
+ */
 public class GameContextSerializer {
     private static final Logger LOGGER = Logger.getInstance();
 
