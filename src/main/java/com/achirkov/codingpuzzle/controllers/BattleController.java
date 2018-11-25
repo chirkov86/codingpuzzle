@@ -5,8 +5,8 @@ import com.achirkov.codingpuzzle.creatures.Player;
 import com.achirkov.codingpuzzle.game.GameContextManager;
 import com.achirkov.codingpuzzle.game.GameState;
 import com.achirkov.codingpuzzle.menus.BattleMenu;
-import com.achirkov.codingpuzzle.menus.menuitems.BattleMenuOptions;
-import com.achirkov.codingpuzzle.menus.menuitems.MenuOption;
+import com.achirkov.codingpuzzle.menus.menuoptions.BattleMenuOptions;
+import com.achirkov.codingpuzzle.menus.menuoptions.MenuOption;
 
 import static com.achirkov.codingpuzzle.game.GameState.*;
 

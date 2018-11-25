@@ -1,7 +1,7 @@
 package com.achirkov.codingpuzzle.menus;
 
 import com.achirkov.codingpuzzle.game.GameContextManager;
-import com.achirkov.codingpuzzle.menus.menuitems.MenuOption;
+import com.achirkov.codingpuzzle.menus.menuoptions.MenuOption;
 
 import java.util.List;
 
@@ -9,9 +9,7 @@ public interface Menu {
 
     void show(GameContextManager gameContextManager);
 
-    List<String> getPossibleOptions();
+    List<String> getPossibleOptionInputs();
 
-    List<Integer> getPossibleOptionCodes();
-
-    MenuOption getOptionFromCode(int code);
+    MenuOption getOptionFromCode(String input);
 }

@@ -24,4 +24,5 @@ public abstract class Player extends AbstractCreature implements Creature {
     public void increaseMoney(int moneyReward) {
         money += moneyReward;
     }
+
 }

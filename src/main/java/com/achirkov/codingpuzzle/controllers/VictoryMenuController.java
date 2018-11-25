@@ -4,7 +4,7 @@ import com.achirkov.codingpuzzle.creatures.Creature;
 import com.achirkov.codingpuzzle.game.GameContextManager;
 import com.achirkov.codingpuzzle.game.GameState;
 import com.achirkov.codingpuzzle.menus.VictoryMenu;
-import com.achirkov.codingpuzzle.menus.menuitems.MenuOption;
+import com.achirkov.codingpuzzle.menus.menuoptions.MenuOption;
 
 import static com.achirkov.codingpuzzle.game.GameState.TRAVEL;
 

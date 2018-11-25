@@ -3,8 +3,8 @@ package com.achirkov.codingpuzzle.controllers;
 import com.achirkov.codingpuzzle.game.GameContextManager;
 import com.achirkov.codingpuzzle.game.GameState;
 import com.achirkov.codingpuzzle.menus.BattleConfirmationMenu;
-import com.achirkov.codingpuzzle.menus.menuitems.BattleConfirmationMenuOptions;
-import com.achirkov.codingpuzzle.menus.menuitems.MenuOption;
+import com.achirkov.codingpuzzle.menus.menuoptions.BattleConfirmationMenuOptions;
+import com.achirkov.codingpuzzle.menus.menuoptions.MenuOption;
 import com.achirkov.codingpuzzle.positioning.Position;
 
 import static com.achirkov.codingpuzzle.game.GameState.*;

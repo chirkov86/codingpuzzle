@@ -7,19 +7,26 @@ import java.util.regex.Pattern;
 
 public class GameContextAwareInputValidator {
 
-
     private static final Pattern NUMERIC_PATTERN = Pattern.compile("[0-9]+");
-    private static final Predicate<String> isNotBlank = s -> s != null && !s.trim().isEmpty();
-    private static final Predicate<String> isDigitsOnly = s -> s != null && NUMERIC_PATTERN.matcher(s).matches();
+    /**
+     * Checks if input is not empty alphanumeric with no spaces
+     */
+    private static final Pattern ALPHANUMERIC_PATTERN = Pattern.compile("[a-zA-Z0-9]+");
 
-    public static Predicate<String> getBasicValidationPredicate() {
-        return isNotBlank.and(isDigitsOnly);
-    }
+    private static final Predicate<String> IS_NOT_BLANK = s -> s != null && !s.trim().isEmpty();
+    private static final Predicate<String> IS_ALPHANUMERIC =
+            s -> IS_NOT_BLANK.test(s) && ALPHANUMERIC_PATTERN.matcher(s).matches();
+    private static final Predicate<String> IS_DIGITS_ONLY =
+            s -> IS_NOT_BLANK.test(s) && NUMERIC_PATTERN.matcher(s).matches();
 
-    public Predicate<String> getContextAwareValidationPredicate(GameState GameState) {
-        final Predicate<String> contextAwarePredicate =
-                option -> GameState.getStateMenu().getPossibleOptionCodes().contains(Integer.parseInt(option));
-
-        return getBasicValidationPredicate().and(contextAwarePredicate);
+    /**
+     * Checks input string against current GameState, i.e. current menu.
+     * Each menu contains a list of possible options mapped to corresponding input strings.
+     * Input string must match at least one from the list.
+     */
+    public static Predicate<String> getValidationPredicate(GameState GameState) {
+        if (GameState.getStateMenu().getPossibleOptionInputs() != null) {
+            return input -> GameState.getStateMenu().getPossibleOptionInputs().stream().anyMatch(input::equalsIgnoreCase);
+        } else return IS_ALPHANUMERIC;
     }
 }

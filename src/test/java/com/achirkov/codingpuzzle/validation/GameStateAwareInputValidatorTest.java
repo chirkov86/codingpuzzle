@@ -1,7 +1,6 @@
 package com.achirkov.codingpuzzle.validation;
 
 import com.achirkov.codingpuzzle.game.GameState;
-import com.achirkov.codingpuzzle.menus.BattleMenu;
 import com.achirkov.codingpuzzle.menus.Menu;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,7 +27,7 @@ public class GameStateAwareInputValidatorTest {
     @Mock
     private Menu menu;
 
-    private List<Integer> availableOptions;
+    private List<String> availableOptions;
 
     private  Predicate<String> predicate;
 
@@ -37,12 +36,12 @@ public class GameStateAwareInputValidatorTest {
         gameContextAwareInputValidator = new GameContextAwareInputValidator();
 
         availableOptions = new ArrayList<>();
-        availableOptions.add(1);
-        availableOptions.add(2);
+        availableOptions.add("1");
+        availableOptions.add("2");
         when(GameState.getStateMenu()).thenReturn(menu);
-        when(menu.getPossibleOptionCodes()).thenReturn(availableOptions);
+        when(menu.getPossibleOptionInputs()).thenReturn(availableOptions);
 
-        predicate = gameContextAwareInputValidator.getContextAwareValidationPredicate(GameState);
+        predicate = gameContextAwareInputValidator.getValidationPredicate(GameState);
     }
 
     @Test

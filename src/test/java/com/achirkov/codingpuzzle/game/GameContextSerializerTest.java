@@ -24,7 +24,7 @@ public class GameContextSerializerTest {
     public void setUp() throws Exception {
         gameContextSerializer = new GameContextSerializer();
         player = new Knight("testName", Position.initial());
-        gameMapManager = new GameMapManager(2);
+        gameMapManager = new GameMapManager(5);
         gameContextHolder = new GameContextHolder(player, gameMapManager.getGameMap());
     }
 
@@ -35,6 +35,8 @@ public class GameContextSerializerTest {
 
     @Test
     public void deserialize() throws ClassNotFoundException {
+        gameContextSerializer.serializeContext(gameContextHolder);
+
         GameContextHolder contextHolder = gameContextSerializer.deserializeContext();
         System.out.println();
         assertNotNull(contextHolder);

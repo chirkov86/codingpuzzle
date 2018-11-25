@@ -1,4 +1,4 @@
-package com.achirkov.codingpuzzle.menus.menuitems;
+package com.achirkov.codingpuzzle.menus.menuoptions;
 
 public enum ContinueOption implements MenuOption {
     CONTINUE("1. Continue", 1),
@@ -6,10 +6,12 @@ public enum ContinueOption implements MenuOption {
 
     String stringValue;
     int intValue;
+    String input;
 
     ContinueOption(String stringValue, int intValue) {
         this.stringValue = stringValue;
         this.intValue = intValue;
+        this.input = String.valueOf(intValue);
     }
 
     @Override
@@ -20,5 +22,10 @@ public enum ContinueOption implements MenuOption {
     @Override
     public int getIntValue() {
         return intValue;
+    }
+
+    @Override
+    public String getInput() {
+        return input;
     }
 }

@@ -1,6 +1,6 @@
 package com.achirkov.codingpuzzle.menus;
 
-import com.achirkov.codingpuzzle.menus.menuitems.MainMenuOptions;
+import com.achirkov.codingpuzzle.menus.menuoptions.MainMenuOptions;
 
 import java.util.Arrays;
 
@@ -8,13 +8,13 @@ public class MainMenu extends AbstractMenu implements Menu {
 
     public MainMenu(final String gameName) {
         menuOptions = Arrays.asList(MainMenuOptions.values());
-        sb = new StringBuilder();
-        sb.append("Welcome to ");
-        sb.append(gameName);
-        sb.append("!\n");
-        sb.append("Main Menu:\n");
-        appendMenuItems(sb);
-        sb.append("Please enter your choice:..");
+        menuText = new StringBuilder();
+        menuText.append("Welcome to ");
+        menuText.append(gameName);
+        menuText.append("!\n");
+        menuText.append("Main Menu:\n");
+        appendMenuItems(menuText);
+        menuText.append("Please enter your choice:..");
     }
 
 }

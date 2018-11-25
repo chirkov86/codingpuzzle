@@ -1,45 +1,45 @@
 package com.achirkov.codingpuzzle.menus;
 
+import com.achirkov.codingpuzzle.exceptions.InvalidInputException;
 import com.achirkov.codingpuzzle.game.GameContextManager;
-import com.achirkov.codingpuzzle.menus.menuitems.MenuOption;
+import com.achirkov.codingpuzzle.menus.menuoptions.MenuOption;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public abstract class AbstractMenu implements Menu {
 
-    StringBuilder sb;
+    StringBuilder menuText;
     List<MenuOption> menuOptions;
 
     @Override
     public void show(GameContextManager gameContextManager) {
-        if (sb != null) {
-            System.out.println(sb);
+        if (menuText != null) {
+            System.out.println(menuText);
         }
     }
 
     @Override
-    public List<String> getPossibleOptions() {
-        return menuOptions.stream().map(MenuOption::name).collect(Collectors.toList());
+    public List<String> getPossibleOptionInputs() {
+        return menuOptions != null
+                ? menuOptions.stream().map(MenuOption::getInput).collect(Collectors.toList())
+                : null;
     }
 
     @Override
-    public List<Integer> getPossibleOptionCodes() {
-        return menuOptions.stream().map(MenuOption::getIntValue).collect(Collectors.toList());
+    public MenuOption getOptionFromCode(String input) {
+        return menuOptions.stream()
+                .filter(menuOption -> menuOption.getInput().equalsIgnoreCase(input))
+                .findFirst()
+                .orElseThrow(InvalidInputException::new);
     }
 
-    @Override
-    public MenuOption getOptionFromCode(int code) {
-        //TODO assert before accessing
-        return menuOptions.get(code - 1);
-    }
-
-    public StringBuilder appendMenuItems(final StringBuilder sb2) {
-        if (sb2 != null) {
+    void appendMenuItems(StringBuilder input) {
+        if (input != null) {
             menuOptions.stream()
                     .map(MenuOption::getMenuItemText)
-                    .forEach(str -> sb2.append(str).append("\n"));
+                    .forEach(str -> input.append(str).append("\n"));
         }
-        return sb2;
     }
+
 }

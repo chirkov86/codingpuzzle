@@ -1,4 +1,4 @@
-package com.achirkov.codingpuzzle.menus.menuitems;
+package com.achirkov.codingpuzzle.menus.menuoptions;
 
 public enum MainMenuOptions implements MenuOption {
     START_NEW_GAME("1. Start a new game", 1),
@@ -9,10 +9,12 @@ public enum MainMenuOptions implements MenuOption {
 
     String itemText;
     int intValue;
+    String input;
 
     MainMenuOptions(String itemText, int intValue) {
         this.itemText = itemText;
         this.intValue = intValue;
+        this.input = String.valueOf(intValue);
     }
 
     @Override
@@ -23,5 +25,10 @@ public enum MainMenuOptions implements MenuOption {
     @Override
     public int getIntValue() {
         return intValue;
+    }
+
+    @Override
+    public String getInput() {
+        return input;
     }
 }

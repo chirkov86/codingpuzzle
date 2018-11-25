@@ -3,6 +3,7 @@ package com.achirkov.codingpuzzle.logger;
 public class Logger {
 
     private static Logger instance = null;
+//    private boolean enabled = true;
     private boolean enabled;
 
     private Logger() {

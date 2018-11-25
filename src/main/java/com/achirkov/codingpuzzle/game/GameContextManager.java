@@ -2,7 +2,6 @@ package com.achirkov.codingpuzzle.game;
 
 import com.achirkov.codingpuzzle.creatures.Player;
 import com.achirkov.codingpuzzle.logger.Logger;
-import com.achirkov.codingpuzzle.menus.menuitems.MenuOption;
 import com.achirkov.codingpuzzle.positioning.GameMapManager;
 import com.achirkov.codingpuzzle.positioning.Position;
 
@@ -18,6 +17,7 @@ public class GameContextManager {
     private GameContextSerializer gameContextSerializer;
 
     GameContextManager() {
+        gameContextSerializer = new GameContextSerializer();
         init();
     }
 
@@ -26,7 +26,7 @@ public class GameContextManager {
     }
 
     public void load() {
-        gameContextSerializer = new GameContextSerializer();
+
         GameContextHolder contextHolder = null;
         try {
             contextHolder = gameContextSerializer.deserializeContext();
@@ -51,7 +51,7 @@ public class GameContextManager {
         return gameMapManager;
     }
 
-    GameState getGameState() {
+    public GameState getGameState() {
         return gameState;
     }
 
@@ -59,12 +59,12 @@ public class GameContextManager {
         gameState.prepare(this);
     }
 
-    void processCommand(MenuOption command) {
+    void processInput(String command) {
         LOGGER.debug("Current state: " + gameState.toString());
         LOGGER.debug("Processing command: " + command);
         prevGameState = gameState;
-        this.gameState = gameState.processCommand(command, this);
-        LOGGER.debug("New state: " + gameState.toString());
+        this.gameState = gameState.processInput(command, this);
+//        LOGGER.debug("New state: " + gameState.toString());
     }
 
     public Player getPlayer() {

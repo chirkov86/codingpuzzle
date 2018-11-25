@@ -3,8 +3,8 @@ package com.achirkov.codingpuzzle.controllers;
 import com.achirkov.codingpuzzle.game.GameContextManager;
 import com.achirkov.codingpuzzle.game.GameState;
 import com.achirkov.codingpuzzle.menus.TravelMenu;
-import com.achirkov.codingpuzzle.menus.menuitems.MenuOption;
-import com.achirkov.codingpuzzle.menus.menuitems.TravelMenuOptions;
+import com.achirkov.codingpuzzle.menus.menuoptions.MenuOption;
+import com.achirkov.codingpuzzle.menus.menuoptions.TravelMenuOptions;
 import com.achirkov.codingpuzzle.positioning.Direction;
 import com.achirkov.codingpuzzle.positioning.Position;
 

@@ -1,7 +1,6 @@
 package com.achirkov.codingpuzzle.game;
 
 import com.achirkov.codingpuzzle.io.ConsoleReader;
-import com.achirkov.codingpuzzle.menus.menuitems.MenuOption;
 
 public class GameLauncher {
 
@@ -12,11 +11,11 @@ public class GameLauncher {
     public void launchGame() {
         final GameContextManager gameContextManager = new GameContextManager();
 
-        MenuOption command;
+        String command;
         while (gameContextManager.getGameState() != GameState.EXIT) {
             gameContextManager.showDialog();
             command = consoleReader.parseCommand(gameContextManager.getGameState());
-            gameContextManager.processCommand(command);
+            gameContextManager.processInput(command);
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.achirkov.codingpuzzle.menus.menuitems;
+package com.achirkov.codingpuzzle.menus.menuoptions;
 
 public enum CharacterSelectionMenuOptions implements MenuOption {
     KNIGHT("1. Knight", 1),
@@ -7,10 +7,12 @@ public enum CharacterSelectionMenuOptions implements MenuOption {
 
     String stringValue;
     int intValue;
+    String input;
 
     CharacterSelectionMenuOptions(String stringValue, int intValue) {
         this.stringValue = stringValue;
         this.intValue = intValue;
+        this.input = String.valueOf(intValue);
     }
 
     @Override
@@ -21,5 +23,10 @@ public enum CharacterSelectionMenuOptions implements MenuOption {
     @Override
     public int getIntValue() {
         return intValue;
+    }
+
+    @Override
+    public String getInput() {
+        return input;
     }
 }

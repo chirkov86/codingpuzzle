@@ -9,7 +9,6 @@ import java.util.Random;
 public abstract class AbstractCreature implements Creature, Serializable {
 
     private static final Random random = new Random();
-
     private String name;
     private Position position;
     private int currentHitPoints;
@@ -61,7 +60,6 @@ public abstract class AbstractCreature implements Creature, Serializable {
         }
     }
 
-
     @Override
     public String getName() {
         return name;
@@ -86,4 +84,9 @@ public abstract class AbstractCreature implements Creature, Serializable {
     public String getDamageInfo() {
         return loDamage + "-" + hiDamage;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }
