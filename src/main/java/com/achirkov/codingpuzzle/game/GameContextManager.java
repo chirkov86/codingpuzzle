@@ -8,6 +8,9 @@ import com.achirkov.codingpuzzle.positioning.Position;
 import com.achirkov.codingpuzzle.save.GameContextHolder;
 import com.achirkov.codingpuzzle.save.GameContextSerializer;
 
+/**
+ * Main class responsible for holding and manipulating the game state.
+ */
 public class GameContextManager {
 
     private final static Logger LOGGER = Logger.getInstance();
@@ -24,12 +27,17 @@ public class GameContextManager {
         init();
     }
 
+    /**
+     * Method to save a game
+     */
     public void save() {
         gameContextSerializer.serializeContext(new GameContextHolder(player, getGameMapManager().getGameMap()));
     }
 
+    /**
+     * Method to load game from a file
+     */
     public void load() throws SaveGameNotFoundException {
-
         GameContextHolder contextHolder = null;
         try {
             contextHolder = gameContextSerializer.deserializeContext();
@@ -68,7 +76,7 @@ public class GameContextManager {
         LOGGER.debug("Processing command: " + command);
         prevGameState = gameState;
         this.gameState = gameState.processInput(command, this);
-//        LOGGER.debug("New state: " + gameState.toString());
+        LOGGER.debug("New state: " + gameState.toString());
     }
 
     public Player getPlayer() {

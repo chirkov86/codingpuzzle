@@ -1,7 +1,7 @@
 package com.achirkov.codingpuzzle.positioning;
 
 import com.achirkov.codingpuzzle.creatures.Creature;
-import com.achirkov.codingpuzzle.exceptions.CreatureNotFound;
+import com.achirkov.codingpuzzle.exceptions.CreatureNotFoundException;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -134,7 +134,7 @@ public class GameMapManager {
 
     public Creature getEnemyAtCurrentPosition() {
         return getEnemyAt(gameMap.getPlayerPosition())
-                .orElseThrow(() -> new CreatureNotFound("Creature not found at current position"));
+                .orElseThrow(() -> new CreatureNotFoundException("Creature not found at current position"));
     }
 
     public int getDimension() {

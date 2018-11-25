@@ -3,6 +3,7 @@ package com.achirkov.codingpuzzle.logger;
 public class Logger {
 
     private static Logger instance = null;
+    //TODO implement enabling via CLI command option
 //    private boolean enabled = true;
     private boolean enabled;
 
@@ -22,8 +23,10 @@ public class Logger {
 
     public void debug(String s) {
 
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        StackTraceElement stackTraceElement = stackTrace[2];
         if (enabled) {
-            System.out.println("[DEBUG]: " + s);
+            System.out.println("[DEBUG] " + stackTraceElement.getClassName() + stackTraceElement.getMethodName() + " - " + s);
         }
     }
 }

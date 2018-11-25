@@ -1,6 +1,6 @@
 package com.achirkov.codingpuzzle.creatures;
 
-import com.achirkov.codingpuzzle.exceptions.CreatureIsDead;
+import com.achirkov.codingpuzzle.exceptions.CreatureIsDeadException;
 import com.achirkov.codingpuzzle.positioning.Position;
 
 import java.io.Serializable;
@@ -15,11 +15,10 @@ public abstract class AbstractCreature implements Creature, Serializable {
     private int maxHitPoints;
     private int loDamage;
     private int hiDamage;
-
-    private boolean isAlive;
-
     private int expReward;
     private int moneyReward;
+    private boolean isAlive;
+
 
     AbstractCreature(String name, Position position, int maxHitPoints, int loDamage, int hiDamage, int expReward,
                             int moneyReward) {
@@ -42,7 +41,7 @@ public abstract class AbstractCreature implements Creature, Serializable {
     @Override
     public int attack() {
         if (!isAlive()) {
-            throw new CreatureIsDead("This creature can not attack because it is dead!");
+            throw new CreatureIsDeadException("This creature can not attack because it is dead!");
         }
         return random.nextInt(hiDamage - loDamage + 1) + loDamage;
     }
