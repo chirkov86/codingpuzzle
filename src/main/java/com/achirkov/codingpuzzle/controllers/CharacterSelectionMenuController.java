@@ -15,7 +15,7 @@ import com.achirkov.codingpuzzle.positioning.Position;
 import static com.achirkov.codingpuzzle.game.GameState.MAIN_MENU;
 import static com.achirkov.codingpuzzle.game.GameState.NAME_SELECTION;
 
-public class CharacterSelectionMenuController extends AbstractController implements StateController {
+public class CharacterSelectionMenuController extends AbstractController {
 
 //    public CharacterSelectionMenuController() {
 //        menu = new CharacterSelectionMenu();
@@ -50,10 +50,10 @@ public class CharacterSelectionMenuController extends AbstractController impleme
         }
     }
 
-    @Override
     /**
      * Extension point to introduce new characters
      */
+    @Override
     public void showMenu(GameContextManager gameContextManager) {
         GameSetting gameSetting = gameContextManager.getGameSetting();
 

@@ -9,7 +9,7 @@ import static com.achirkov.codingpuzzle.game.GameState.MAIN_MENU;
 import static com.achirkov.codingpuzzle.io.ColorCodes.ANSI_RED;
 import static com.achirkov.codingpuzzle.io.ColorCodes.ANSI_RESET;
 
-public class DeathMenuController extends AbstractController implements StateController {
+public class DeathMenuController extends AbstractController {
 
     public DeathMenuController() {
         menu = new DeathMenu();

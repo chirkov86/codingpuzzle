@@ -10,7 +10,7 @@ import static com.achirkov.codingpuzzle.game.GameState.TRAVEL;
 import static com.achirkov.codingpuzzle.io.ColorCodes.ANSI_RESET;
 import static com.achirkov.codingpuzzle.io.ColorCodes.ANSI_YELLOW;
 
-public class VictoryMenuController extends AbstractController implements StateController {
+public class VictoryMenuController extends AbstractController {
 
     public VictoryMenuController() {
         menu = new VictoryMenu();

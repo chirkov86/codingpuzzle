@@ -12,7 +12,7 @@ import com.achirkov.codingpuzzle.positioning.Position;
 import static com.achirkov.codingpuzzle.game.GameState.*;
 import static com.achirkov.codingpuzzle.io.ColorCodes.*;
 
-public class TravelMapController extends AbstractController implements StateController {
+public class TravelMapController extends AbstractController {
 
     public TravelMapController() {
         menu = new TravelMenu();

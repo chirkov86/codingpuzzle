@@ -11,7 +11,7 @@ import static com.achirkov.codingpuzzle.game.GameState.*;
 import static com.achirkov.codingpuzzle.io.ColorCodes.ANSI_RED;
 import static com.achirkov.codingpuzzle.io.ColorCodes.ANSI_RESET;
 
-public class MainMenuController extends AbstractController implements StateController {
+public class MainMenuController extends AbstractController {
 
     public MainMenuController(String gameName) {
         this.menu = new MainMenu(gameName);

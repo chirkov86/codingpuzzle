@@ -4,7 +4,7 @@ import com.achirkov.codingpuzzle.game.GameContextManager;
 import com.achirkov.codingpuzzle.game.GameState;
 import com.achirkov.codingpuzzle.menus.NameSelectionMenu;
 
-public class NameSelectionMenuController extends AbstractController implements StateController {
+public class NameSelectionMenuController extends AbstractController {
 
     public NameSelectionMenuController() {
         this.menu = new NameSelectionMenu();

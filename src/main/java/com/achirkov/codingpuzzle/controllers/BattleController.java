@@ -11,7 +11,7 @@ import com.achirkov.codingpuzzle.menus.menuoptions.MenuOption;
 import static com.achirkov.codingpuzzle.game.GameState.*;
 import static com.achirkov.codingpuzzle.io.ColorCodes.*;
 
-public class BattleController extends AbstractController implements StateController {
+public class BattleController extends AbstractController {
 
     public BattleController() {
         menu = new BattleMenu();
