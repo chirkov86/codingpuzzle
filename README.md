@@ -31,7 +31,7 @@ See examples below.
 - :white_check_mark: Code static analysis plugin is included to the CI pipeline
 - :white_check_mark: Build, coverage and analysis badges from 3d party services are added to this repo (see at the top)
 - :black_square_button: Dockerize: automate building a docker container and deploy it to any registry
-- :black_square_button: Deploy: automate deployment
+- :black_square_button: Deploy: automate deployment\
 Since this is not a web app, the last two options are rather useless, but still might be a good exercise. 
 
 ### How-to run
