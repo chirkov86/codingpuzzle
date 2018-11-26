@@ -31,6 +31,7 @@ See examples below.
 - :white_check_mark: Code coverage plugin is included to the CI pipeline
 - :white_check_mark: Code static analysis plugin is included to the CI pipeline
 - :white_check_mark: Build, coverage and analysis badges from 3d party services are added to this repo (see at the top)
+- :white_check_mark: Tasks are kept in a backlog (see below)
 - :black_square_button: Dockerize: automate building a docker container and deploy it to any registry
 - :black_square_button: Deploy: automate deployment
 
@@ -57,7 +58,7 @@ Code has several extension points and supposed to make the project extensible
 3. Fighting and gaining exp:\
 ![Creation](images/Fighting.png)\
 
-### Backlog
+### Taks Backlog
 - Add map legend, e.g. P - player, M - monster, G - treasure
 - Add a hero dashboard, e.g.
 
@@ -68,4 +69,5 @@ HP | 80/100
 Damage | 15-25
 
 - Add in-game game topic switcher
+- Pay Technical debt
 
