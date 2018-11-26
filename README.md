@@ -77,4 +77,5 @@ Damage | 15-25
 
 - Add in-game game topic switcher
 - Pay Technical debt
+- Fight with TODOs in code
 
