@@ -11,7 +11,7 @@ public final class Logger {
         instance = this;
     }
 
-    // “Initialization on Demand Holder”
+    // Initialization on Demand Holder
     private static class Holder {
         private final static Logger instance = new Logger();
     }
