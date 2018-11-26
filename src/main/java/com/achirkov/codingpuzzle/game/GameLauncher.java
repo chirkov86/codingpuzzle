@@ -5,18 +5,22 @@ import com.achirkov.codingpuzzle.io.ConsoleReader;
 
 public class GameLauncher {
 
-    private ConsoleReader consoleReader = new ConsoleReader();
+    private ConsoleReader consoleReader;
+    private GameContextManager gameContextManager;
 
     /**
      * Here is an extension point to plugin new game topic
      * TODO add CLI args support to switch game topic
      */
-    public void launchGame() {
-        final GameContextManager gameContextManager;
+    public GameLauncher() {
+        this.consoleReader = new ConsoleReader();
+
         // Here is how a new game topic enabled
         gameContextManager = new GameContextManager(GameSetting.DUNGEON);
         //gameContextManager = new GameContextManager(GameSetting.LOTR);
+    }
 
+    public void launchGame() {
         String command;
         while (gameContextManager.getGameState() != GameState.EXIT) {
             gameContextManager.showDialog();
