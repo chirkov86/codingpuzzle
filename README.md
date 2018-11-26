@@ -45,14 +45,14 @@ Since this is not a web app, the last option is rather useless, but it still mig
 
 ### How-to run
 With JRE:
-- `$ git clone https://github.com/chirkov86/codingpuzzle.git`\
-- `$ cd codingpuzzle`\
-- `$ ./gradlew build`\
+- `$ git clone https://github.com/chirkov86/codingpuzzle.git`
+- `$ cd codingpuzzle`
+- `$ ./gradlew build`
 - `$ java -jar ./build/libs/codingpuzzle-1.0-SNAPSHOT.jar`
 
 With Docker:
 - `$ docker pull fyrkov86/codingpuzzle`
-- `$ docker container run -it --rm --mount source=codingpuzzle-vol,target=/savegames fyrkov86/codingpuzzle`\ 
+- `$ docker container run -it --rm --mount source=codingpuzzle-vol,target=/savegames fyrkov86/codingpuzzle`\
 or, if that doesn not work in Win+MINGW:\
 `winpty docker container run -it --rm --mount source=codingpuzzle-vol,target=//savegames fyrkov86/codingpuzzle`
 - `docker volume rm codingpuzzle-vol` after exit
