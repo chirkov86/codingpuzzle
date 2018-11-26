@@ -24,9 +24,10 @@ See examples below.
 - Project is build with respect to agile engineering practices, see next chapter
 
 ### Engineering practices involved
+- :white_check_mark: Project is under VCS control (GIT)
 - :white_check_mark: Project is hosted on GitHub
 - :white_check_mark: CI pipeline is configured to build on each push
-- :white_check_mark: Project is covered with unit tests 
+- :white_check_mark: Project is covered with unit tests (partly though)
 - :white_check_mark: Code coverage plugin is included to the CI pipeline
 - :white_check_mark: Code static analysis plugin is included to the CI pipeline
 - :white_check_mark: Build, coverage and analysis badges from 3d party services are added to this repo (see at the top)
