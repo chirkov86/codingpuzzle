@@ -6,11 +6,13 @@ import com.achirkov.codingpuzzle.logger.Logger;
 import com.achirkov.codingpuzzle.menus.Menu;
 import com.achirkov.codingpuzzle.menus.menuoptions.MenuOption;
 
+import javax.annotation.Nonnull;
+
 public abstract class AbstractController implements StateController {
 
     private static final Logger LOGGER = Logger.getInstance();
 
-    Menu menu;
+    protected Menu menu;
 
     /**
      * Processes input as one of pre-defined menu options
@@ -18,7 +20,7 @@ public abstract class AbstractController implements StateController {
      * or a free form input otherwise (e.g. typing character name)
      */
     @Override
-    public final GameState processInput(String input, GameContextManager gameContextManager) {
+    public final GameState processInput(@Nonnull String input, @Nonnull GameContextManager gameContextManager) {
         if (menu.getPossibleOptionInputs() != null) {
             MenuOption menuOption = commandFrom(input, gameContextManager.getGameState());
             return processCommand(menuOption, gameContextManager);

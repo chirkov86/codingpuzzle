@@ -11,14 +11,16 @@ public final class Logger {
         instance = this;
     }
 
+    // “Initialization on Demand Holder”
+    private static class Holder {
+        private final static Logger instance = new Logger();
+    }
+
     /**
-     * Not thread safe!
      * @return Logger
      */
     public static Logger getInstance() {
-        if (instance == null) {
-            return new Logger();
-        } else return instance;
+        return Holder.instance;
     }
 
     public void debug(String s) {
@@ -26,7 +28,8 @@ public final class Logger {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         StackTraceElement stackTraceElement = stackTrace[2];
         if (enabled) {
-            System.out.println("[DEBUG] " + stackTraceElement.getClassName() + stackTraceElement.getMethodName() + " - " + s);
+            System.out.println("[DEBUG] " + stackTraceElement.getClassName() + stackTraceElement.getMethodName() + " " +
+                    "- " + s);
         }
     }
 }
