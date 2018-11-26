@@ -29,8 +29,8 @@ See examples below.
 - :white_check_mark: CI pipeline (Travis CI) is configured to build on each push
 - :white_check_mark: Project is covered with unit tests (partly though)
 - :white_check_mark: Code is covered with javadocs (partly though)
-- :white_check_mark: Code coverage plugin is included to the CI pipeline
-- :white_check_mark: Code static analysis plugin is included to the CI pipeline
+- :white_check_mark: Code coverage plugin is included into the CI pipeline
+- :white_check_mark: Code static analysis plugin is included into the CI pipeline
 - :white_check_mark: Build, coverage and analysis badges from 3d party services are added to this repo (see at the top)
 - :white_check_mark: Tasks are kept in a backlog (see below)
 - :white_check_mark: Project is containerized with Docker (https://hub.docker.com/r/fyrkov86/codingpuzzle/)
