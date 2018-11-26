@@ -57,3 +57,14 @@ Code has several extension points and supposed to make the project extensible
 3. Fighting and gaining exp:\
 ![Creation](images/Fighting.png)\
 
+### Backlog
+- Add map legend, e.g. P - player, M - monster, G - treasure
+- Add a hero dashboard, e.g.\
+Name | Player1
+--------- | ----------
+Name | Player1
+Class | Wizard
+HP | 80/100
+Damage | 15-25
+- Add in-game game topic switcher
+
