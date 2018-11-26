@@ -26,5 +26,6 @@ public class GameLauncherTest {
         when(consoleReader.parseCommand(GameState.TRAVEL)).thenReturn("W").thenReturn("5");
         when(consoleReader.parseCommand(GameState.BATTLE_CONFIRMATION)).thenReturn("2");
         gameLauncher.launchGame();
+        System.out.println();
     }
 }
