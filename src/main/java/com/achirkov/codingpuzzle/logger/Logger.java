@@ -1,18 +1,18 @@
 package com.achirkov.codingpuzzle.logger;
 
-public class Logger {
+public final class Logger {
 
-    private static Logger instance = null;
+    private static Logger instance;
     //TODO implement enabling via CLI command option
-//    private boolean enabled = true;
+    //private boolean enabled = true;
     private boolean enabled;
 
     private Logger() {
+        instance = this;
     }
 
     /**
-     * Factory method
-     *
+     * Not thread safe!
      * @return Logger
      */
     public static Logger getInstance() {

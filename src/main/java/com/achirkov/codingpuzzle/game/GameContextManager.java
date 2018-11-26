@@ -16,7 +16,6 @@ public class GameContextManager {
 
     private final static Logger LOGGER = Logger.getInstance();
     private GameState gameState;
-    private GameState prevGameState;
     private Player player;
     private Position positionForAttack;
     private Position positionForFlee;
@@ -28,6 +27,14 @@ public class GameContextManager {
         this.gameSetting = gameSetting;
         gameContextSerializer = new GameContextSerializer();
         init();
+    }
+
+    /**
+     * This method starts new game
+     */
+    public final void init() {
+        gameState = GameState.MAIN_MENU;
+        gameMapManager = new GameMapManager(6, gameSetting);
     }
 
     /**
@@ -57,12 +64,11 @@ public class GameContextManager {
         }
     }
 
-    /**
-     * This method starts new game
-     */
-    public void init() {
-        gameState = GameState.MAIN_MENU;
-        gameMapManager = new GameMapManager(6, gameSetting);
+    void processInput(String command) {
+        LOGGER.debug("Current state: " + gameState.toString());
+        LOGGER.debug("Processing command: " + command);
+        this.gameState = gameState.processInput(command, this);
+        LOGGER.debug("New state: " + gameState.toString());
     }
 
     public GameMapManager getGameMapManager() {
@@ -75,14 +81,6 @@ public class GameContextManager {
 
     void showDialog() {
         gameState.prepare(this);
-    }
-
-    void processInput(String command) {
-        LOGGER.debug("Current state: " + gameState.toString());
-        LOGGER.debug("Processing command: " + command);
-        prevGameState = gameState;
-        this.gameState = gameState.processInput(command, this);
-        LOGGER.debug("New state: " + gameState.toString());
     }
 
     public Player getPlayer() {

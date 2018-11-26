@@ -36,8 +36,8 @@ public class BattleControllerTest {
     @Before
     public void setUp() {
         when(gameContextManager.getGameMapManager()).thenReturn(gameMapManager);
-        when(gameMapManager.getEnemyAtCurrentPosition()).thenReturn(new Skeleton(position));
-        when(gameContextManager.getPlayer()).thenReturn(new Knight("Test", position));
+        when(gameMapManager.getEnemyAtPlayerPosition()).thenReturn(new Skeleton(position));
+        when(gameContextManager.getPlayer()).thenReturn(new Knight(position));
     }
 
     @Test

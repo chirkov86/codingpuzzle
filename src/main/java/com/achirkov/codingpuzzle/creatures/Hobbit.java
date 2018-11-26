@@ -3,7 +3,7 @@ package com.achirkov.codingpuzzle.creatures;
 import com.achirkov.codingpuzzle.positioning.Position;
 
 public class Hobbit extends Player {
-    public Hobbit(String name, Position position) {
-        super("Hobbit", name, position, 30, 10, 12);
+    public Hobbit(Position position) {
+        super("Hobbit", "Player1", position, 30, 10, 12);
     }
 }

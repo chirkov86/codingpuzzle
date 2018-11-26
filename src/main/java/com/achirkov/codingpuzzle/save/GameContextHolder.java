@@ -10,7 +10,7 @@ import java.io.Serializable;
  * Data class to enclose the game state to be serialized
  */
 public class GameContextHolder implements Serializable {
-
+    public static final long serialVersionUID = 42L;
     private Player player;
     private GameMap gameMap;
     private GameSetting gameSetting;

@@ -21,6 +21,7 @@ repositories {
 }
 
 dependencies {
+    compileOnly('com.google.code.findbugs:jsr305:3.0.2')  // for @Nonnull
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile('org.mockito:mockito-core:2.21.0')
 }

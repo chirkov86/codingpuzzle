@@ -39,7 +39,7 @@ public class BattleController extends AbstractController {
     }
 
     private GameState tryAttack(GameContextManager gameContextManager) {
-        Creature enemy = gameContextManager.getGameMapManager().getEnemyAtCurrentPosition();
+        Creature enemy = gameContextManager.getGameMapManager().getEnemyAtPlayerPosition();
         Player player = gameContextManager.getPlayer();
         StringBuilder battleLog;
 

@@ -24,21 +24,21 @@ public class CharacterSelectionMenuController extends AbstractController {
             // Characters for GameSetting.DUNGEON
             case KNIGHT:
                 System.out.println("You have chosen a knight!");
-                gameContextManager.setPlayer(new Knight("Player1", Position.initial()));
+                gameContextManager.setPlayer(new Knight(Position.initial()));
                 return NAME_SELECTION;
             case WIZARD:
                 System.out.println("You have chosen a wizard!");
-                gameContextManager.setPlayer(new Wizard("Player1", Position.initial()));
+                gameContextManager.setPlayer(new Wizard(Position.initial()));
                 return NAME_SELECTION;
 
             // Characters for GameSetting.LOTR
             case ELF:
                 System.out.println("You have chosen an elf!");
-                gameContextManager.setPlayer(new Elf("Player1", Position.initial()));
+                gameContextManager.setPlayer(new Elf(Position.initial()));
                 return NAME_SELECTION;
             case HOBBIT:
                 System.out.println("You have chosen a hobbit!");
-                gameContextManager.setPlayer(new Hobbit("Player1", Position.initial()));
+                gameContextManager.setPlayer(new Hobbit(Position.initial()));
                 return NAME_SELECTION;
 
             default:

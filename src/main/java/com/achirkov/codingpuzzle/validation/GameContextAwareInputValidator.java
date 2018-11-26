@@ -5,7 +5,10 @@ import com.achirkov.codingpuzzle.game.GameState;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
-public class GameContextAwareInputValidator {
+public final class GameContextAwareInputValidator {
+
+    private GameContextAwareInputValidator() {
+    }
 
     private static final Pattern NUMERIC_PATTERN = Pattern.compile("[0-9]+");
     /**

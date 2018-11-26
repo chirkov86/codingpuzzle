@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.function.Function;
 
 /**
- * {@code GameSetting} is an extension point to introduce new game stories.
+ * {@code GameSetting} is an extension point to introduce new game topic / game stories.
  * Each game setting provides a suppliers for enemies, items and heroes(todo).
  */
 public enum GameSetting implements Serializable {
@@ -49,6 +49,12 @@ public enum GameSetting implements Serializable {
     },
     ;
 
+    /**
+     * @return a {@code Function} to create a Creature from a Position
+     */
     public abstract Function<Position, Creature> getCreatureFactory();
+    /**
+     * @return a {@code Function} to create an Item from a Position
+     */
     public abstract Function<Position, Item> getItemFactory();
     public abstract String getName();}

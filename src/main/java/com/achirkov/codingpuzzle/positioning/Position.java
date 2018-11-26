@@ -4,11 +4,13 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * Data object class. Effectively immutable
+ * Data object class.
+ * Effectively immutable.
  * Is used to save game.
  */
 public class Position implements Serializable  {
 
+    public static final long serialVersionUID = 42L;
     private final int x;
     private final int y;
 

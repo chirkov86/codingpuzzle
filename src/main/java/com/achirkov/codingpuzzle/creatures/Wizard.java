@@ -4,7 +4,7 @@ import com.achirkov.codingpuzzle.positioning.Position;
 
 public class Wizard extends Player {
 
-    public Wizard(String name, Position position) {
-        super("Wizard", name, position, 75, 20, 30);
+    public Wizard(Position position) {
+        super("Wizard", "Player1", position, 75, 20, 30);
     }
 }

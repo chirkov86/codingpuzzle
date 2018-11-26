@@ -8,9 +8,12 @@ import java.util.Collection;
 
 /**
  * Data object class.
- * Is used to save game.
+ * Currently is only NxN supported.
+ * TODO: re-work to NxM
+ * This class is used to save game.
  */
 public class GameMap implements Serializable {
+    public static final long serialVersionUID = 42L;
     private int dimension;
     private boolean fogOfWar[][];
     private Collection<Creature> enemies;
@@ -29,6 +32,7 @@ public class GameMap implements Serializable {
         return dimension;
     }
 
+    // required for serialization
     public void setDimension(int dimension) {
         this.dimension = dimension;
     }
@@ -37,6 +41,7 @@ public class GameMap implements Serializable {
         return enemies;
     }
 
+    // required for serialization
     public void setEnemies(Collection<Creature> enemies) {
         this.enemies = enemies;
     }
@@ -53,6 +58,7 @@ public class GameMap implements Serializable {
         return fogOfWar;
     }
 
+    // required for serialization
     public void setFogOfWar(boolean[][] fogOfWar) {
         this.fogOfWar = fogOfWar;
     }
@@ -61,6 +67,7 @@ public class GameMap implements Serializable {
         return treasures;
     }
 
+    // required for serialization
     public void setTreasures(Collection<Item> treasures) {
         this.treasures = treasures;
     }

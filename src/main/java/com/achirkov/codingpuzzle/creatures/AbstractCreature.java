@@ -8,7 +8,8 @@ import java.util.Random;
 
 public abstract class AbstractCreature implements Creature, Serializable {
 
-    private static final Random random = new Random();
+    public static final long serialVersionUID = 42L;
+    transient private static final Random random = new Random();
     private String name;
     private Position position;
     private int currentHitPoints;

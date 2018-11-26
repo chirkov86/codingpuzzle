@@ -9,6 +9,8 @@ import com.achirkov.codingpuzzle.menus.menuoptions.TravelMenuOptions;
 import com.achirkov.codingpuzzle.positioning.Direction;
 import com.achirkov.codingpuzzle.positioning.Position;
 
+import java.util.Optional;
+
 import static com.achirkov.codingpuzzle.game.GameState.*;
 import static com.achirkov.codingpuzzle.io.ColorCodes.*;
 
@@ -38,7 +40,8 @@ public class TravelMapController extends AbstractController {
     }
 
     private GameState tryMove(GameContextManager gameContextManager, Direction direction) {
-        Position newPosition = gameContextManager.getGameMapManager().getPlayerPosition().getNewPositionToThe(direction);
+        Position newPosition =
+                gameContextManager.getGameMapManager().getPlayerPosition().getNewPositionToThe(direction);
 
         if (!gameContextManager.getPlayer().isAlive()) {
             System.out.println(ANSI_RED + "\n Hero is dead and can not move anymore!\n" + ANSI_RESET);
@@ -56,15 +59,15 @@ public class TravelMapController extends AbstractController {
             return BATTLE_CONFIRMATION;
         }
         gameContextManager.getGameMapManager().setPlayerPosition(newPosition);
-        if (gameContextManager.getGameMapManager().isTreasurePosition(newPosition)) {
-            Item treasure = gameContextManager.getGameMapManager().takeTreasure(newPosition);
-            gameContextManager.getPlayer().increaseMoney(treasure.getValue());
-            System.out.println(new StringBuilder().append(ANSI_YELLOW)
-                    .append("\n Congratulations! You have found a treasure worth of ")
-                    .append(treasure.getValue())
-                    .append(" gold coins!\n")
-                    .append(ANSI_RESET));
-        }
+        gameContextManager.getGameMapManager().takeTreasureAt(newPosition)
+                .ifPresent(treasure -> {
+                    gameContextManager.getPlayer().increaseMoney(treasure.getValue());
+                    System.out.println(new StringBuilder().append(ANSI_YELLOW)
+                            .append("\n Congratulations! You have found a treasure worth of ")
+                            .append(treasure.getValue())
+                            .append(" gold coins!\n")
+                            .append(ANSI_RESET));
+                });
         return TRAVEL;
     }
 }

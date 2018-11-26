@@ -32,8 +32,8 @@ public class BattleMenu extends AbstractMenu implements Menu {
         //TODO implement as a separate Presenter class
         //TODO do not create a new string each time, need to use pre-constructed one
         Player player = gameContextManager.getPlayer();
-        Creature monster = gameContextManager.getGameMapManager().getEnemyAtCurrentPosition();
-        StringBuilder sb = new StringBuilder();
+        Creature monster = gameContextManager.getGameMapManager().getEnemyAtPlayerPosition();
+        StringBuilder sb = new StringBuilder(200);
 
         sb.append("______|")
                 .append(ANSI_BLUE)

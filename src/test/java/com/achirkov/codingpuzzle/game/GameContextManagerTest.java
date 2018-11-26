@@ -16,7 +16,7 @@ public class GameContextManagerTest {
     @Before
     public void setUp() throws Exception {
         gameContextManager = new GameContextManager(GameSetting.DUNGEON);
-        gameContextManager.setPlayer(new Knight("Player1", Position.initial()));
+        gameContextManager.setPlayer(new Knight(Position.initial()));
     }
 
     @After

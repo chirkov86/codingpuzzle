@@ -26,7 +26,7 @@ public class GameContextSerializerTest {
     @Before
     public void setUp() throws Exception {
         gameContextSerializer = new GameContextSerializer();
-        player = new Knight("testName", Position.initial());
+        player = new Knight(Position.initial());
         gameMapManager = new GameMapManager(5, GameSetting.DUNGEON);
         gameContextHolder = new GameContextHolder(player, gameMapManager.getGameMap(), GameSetting.DUNGEON);
     }

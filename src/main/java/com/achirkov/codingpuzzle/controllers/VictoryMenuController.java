@@ -24,7 +24,7 @@ public class VictoryMenuController extends AbstractController {
     @Override
     public void showReport(GameContextManager gameContextManager) {
 
-        Creature creature = gameContextManager.getGameMapManager().getEnemyAtCurrentPosition();
+        Creature creature = gameContextManager.getGameMapManager().getEnemyAtPlayerPosition();
 
         System.out.println(new StringBuilder().append(ANSI_YELLOW)
                 .append("\n Congratulations! You have killed a ")

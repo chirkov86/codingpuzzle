@@ -26,25 +26,43 @@ public class MapGenerator {
         }
     }
 
+    void randomlyFillMapWithTreasures(GameMapManager gameMapManager) {
+        randomlyFillMapWithTreasure(gameMapManager);
+        randomlyFillMapWithTreasure(gameMapManager);
+    }
+
     /**
      * Creates a creature in a random not occupied cell
      */
     private void randomlyFillMapWithCreature(GameMapManager gameMapManager) {
+        Position position = getRandomFreePosition(gameMapManager);
+        gameMapManager.getEnemies().add(createRandomCreature(gameSetting, position));
+    }
+
+    /**
+     * Creates a treasure in a random not occupied cell
+     */
+    private void randomlyFillMapWithTreasure(GameMapManager gameMapManager) {
+        Position position = getRandomFreePosition(gameMapManager);
+        gameMapManager.getGameMap().getTreasures().add(gameSetting.getItemFactory().apply(position));
+    }
+
+    /**
+     * @return a random free, i.e. not occupied position
+     */
+    private Position getRandomFreePosition(final GameMapManager gameMapManager) {
         int dimension = gameMapManager.getDimension();
-        Position position;
         int x;
         int y;
         do {
             x = random.nextInt(dimension);
             y = random.nextInt(dimension);
-            position = new Position(x, y);
-        } while (gameMapManager.isMonsterPosition(x, y) || gameMapManager.isPlayerPosition(x, y));
-
-        gameMapManager.getEnemies().add(createRandomCreature(gameSetting, position));
+        } while (gameMapManager.getEnemyAt(x, y).isPresent() || gameMapManager.isPlayerPosition(x, y));
+        return Position.from(x, y);
     }
 
     // TODO optimize this, currently is stupid O(n^2) each time
-    public void fillFogOfWar(GameMapManager gameMapManager) {
+    void fillFogOfWar(GameMapManager gameMapManager) {
         int dimension = gameMapManager.getGameMap().getDimension();
         boolean[][] fogOfWar = gameMapManager.getGameMap().getFogOfWar();
         for (int i = 0; i < dimension; i++) {
@@ -56,22 +74,6 @@ public class MapGenerator {
     }
 
     private Creature createRandomCreature(GameSetting gameSetting, Position position) {
-
         return gameSetting.getCreatureFactory().apply(position);
-    }
-
-    //TODO currently adds only 1 treasure
-    public void randomlyFillMapWithTreasures(GameMapManager gameMapManager) {
-        int dimension = gameMapManager.getDimension();
-        Position position;
-        int x;
-        int y;
-        do {
-            x = random.nextInt(dimension);
-            y = random.nextInt(dimension);
-            position = new Position(x, y);
-        } while (gameMapManager.isMonsterPosition(x, y) || gameMapManager.isPlayerPosition(x, y));
-
-        gameMapManager.getGameMap().getTreasures().add(gameSetting.getItemFactory().apply(position));
     }
 }

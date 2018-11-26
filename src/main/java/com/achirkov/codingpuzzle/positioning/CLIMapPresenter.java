@@ -2,7 +2,7 @@ package com.achirkov.codingpuzzle.positioning;
 
 import static com.achirkov.codingpuzzle.io.ColorCodes.*;
 
-public class CLIMapPresenter implements MapPresenter {
+public class CLiMapPresenter implements MapPresenter {
 
     @Override
     // TODO optimize: re-use pre-constructed StringBuilder
@@ -14,8 +14,7 @@ public class CLIMapPresenter implements MapPresenter {
             for (int x = 0; x < dimension; x++) {
                 if (gameMapManager.isPlayerPosition(x, y)) {
                     sb.append(BLUE_BOLD).append("P").append(ANSI_RESET).append(" ");
-                } else if (gameMapManager.isMonsterPosition(x, y)
-                        //TODO Utilize Optional
+                } else if (gameMapManager.getEnemyAt(x, y).isPresent()
                         && gameMapManager.getEnemyAt(x, y).get().isAlive()
                         && gameMapManager.isPositionExplored(x, y)) {
                     sb.append(ANSI_RED).append("M").append(ANSI_RESET).append(" ");
