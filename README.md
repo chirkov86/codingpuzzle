@@ -58,7 +58,8 @@ or, if that doesn not work in Win+MINGW:\
 - `docker volume rm codingpuzzle-vol` after exit
 
 ### Possible extensions
-Code has several extension points and supposed to make the project extensible
+Code has several extension points and supposed to make the project extensible. 
+Details can be found in the comments/javadocs
 
 ### Game process examples 
 1. Creation:\
