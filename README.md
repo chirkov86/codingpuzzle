@@ -63,7 +63,6 @@ Code has several extension points and supposed to make the project extensible
 
 Name | Player1
 ------------ | -------------
-Name | Player1
 Class | Wizard
 HP | 80/100
 Damage | 15-25
