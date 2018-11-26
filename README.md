@@ -53,9 +53,7 @@ With JRE:
 With Docker:
 - `$ docker pull fyrkov86/codingpuzzle`
 - `$ docker container run -it --rm --mount source=codingpuzzle-vol,target=/savegames fyrkov86/codingpuzzle`\
-or, if that doesn not work in Win+MINGW:\
-`winpty docker container run -it --rm --mount source=codingpuzzle-vol,target=//savegames fyrkov86/codingpuzzle`
-- `docker volume rm codingpuzzle-vol` after exit
+- `docker volume rm codingpuzzle-vol` after exit (see detailed instructions in the Dockerfile)
 
 ### Possible extensions
 Code has several extension points and supposed to make the project extensible. 
