@@ -26,7 +26,7 @@ See examples below.
 ### Engineering practices involved
 - :white_check_mark: Project is under VCS control (GIT)
 - :white_check_mark: Project is hosted on GitHub
-- :white_check_mark: CI pipeline is configured to build on each push
+- :white_check_mark: CI pipeline (Travis CI) is configured to build on each push
 - :white_check_mark: Project is covered with unit tests (partly though)
 - :white_check_mark: Code coverage plugin is included to the CI pipeline
 - :white_check_mark: Code static analysis plugin is included to the CI pipeline
@@ -36,8 +36,10 @@ See examples below.
 
 Since this is not a web app, the last two options are rather useless, but they still might be a good exercise. 
 
+### Requirements
+Requirements: Java 1.8, Docker(optional)
+
 ### How-to run
-Requirements: Java 1.8, Docker(optional)\
 `$ git clone https://github.com/chirkov86/codingpuzzle.git`\
 `$ cd codingpuzzle`\
 `$ ./gradlew build`\
