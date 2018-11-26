@@ -36,7 +36,7 @@ See examples below.
 Since this is not a web app, the last two options are rather useless, but they still might be a good exercise. 
 
 ### How-to run
-Requirements: Java 1.8, Docker(optional)
+Requirements: Java 1.8, Docker(optional)\
 `$ git clone https://github.com/chirkov86/codingpuzzle.git`\
 `$ cd codingpuzzle`\
 `$ ./gradlew build`\
