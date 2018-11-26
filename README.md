@@ -41,7 +41,7 @@ Since this is not a web app, the last option is rather useless, but it still mig
 
 ### Requirements
 - Java 1.8
-- Docker(optional)
+- Docker (optional)
 
 ### How-to run
 With JRE:\
@@ -51,7 +51,7 @@ With JRE:\
 `$ java -jar ./build/libs/codingpuzzle-1.0-SNAPSHOT.jar`
 
 With Docker:\
-`$ docker pull fyrkov86/codingpuzzle`
+`$ docker pull fyrkov86/codingpuzzle`\
 `$ docker container run -it fyrkov86/codingpuzzle`
 
 ### Possible extensions
