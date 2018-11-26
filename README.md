@@ -32,6 +32,7 @@ See examples below.
 - :white_check_mark: Code static analysis plugin is included to the CI pipeline
 - :white_check_mark: Build, coverage and analysis badges from 3d party services are added to this repo (see at the top)
 - :white_check_mark: Tasks are kept in a backlog (see below)
+- :white_check_mark: Project is containerized with Docker (https://hub.docker.com/r/fyrkov86/codingpuzzle/)
 - :black_square_button: Dockerize: automate building a docker container and deploy it to any registry
 - :black_square_button: Deploy: automate deployment
 
@@ -42,10 +43,15 @@ Since this is not a web app, the last two options are rather useless, but they s
 - Docker(optional)
 
 ### How-to run
+With JRE:
 `$ git clone https://github.com/chirkov86/codingpuzzle.git`\
 `$ cd codingpuzzle`\
 `$ ./gradlew build`\
 `$ java -jar ./build/libs/codingpuzzle-1.0-SNAPSHOT.jar`
+
+With Docker:
+`$ docker pull fyrkov86/codingpuzzle`
+`$ docker container run -it fyrkov86/codingpuzzle`
 
 ### Possible extensions
 Code has several extension points and supposed to make the project extensible
