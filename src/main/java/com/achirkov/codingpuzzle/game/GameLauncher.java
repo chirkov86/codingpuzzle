@@ -9,7 +9,7 @@ public class GameLauncher {
 
     /**
      * Here is an extension point to plugin new game topic
-     * TODO add CLI args support to switch
+     * TODO add CLI args support to switch game topic
      */
     public void launchGame() {
         final GameContextManager gameContextManager;

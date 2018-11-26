@@ -27,7 +27,7 @@ public final class Logger {
 
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         StackTraceElement stackTraceElement = stackTrace[2];
-        if (enabled) {
+        if (enabled && s!= null) {
             System.out.println("[DEBUG] " + stackTraceElement.getClassName() + stackTraceElement.getMethodName() + " " +
                     "- " + s);
         }

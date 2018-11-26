@@ -3,6 +3,7 @@ package com.achirkov.codingpuzzle.save;
 import com.achirkov.codingpuzzle.exceptions.SaveGameNotFoundException;
 import com.achirkov.codingpuzzle.logger.Logger;
 
+import javax.annotation.Nonnull;
 import java.io.*;
 
 /**
@@ -13,7 +14,7 @@ import java.io.*;
 public class GameContextSerializer {
     private static final Logger LOGGER = Logger.getInstance();
 
-    public void serializeContext(GameContextHolder gameContextHolder) {
+    public void serializeContext(@Nonnull GameContextHolder gameContextHolder) {
         File dir = new File("savegames");
         if (!dir.exists()) {
             dir.mkdir();

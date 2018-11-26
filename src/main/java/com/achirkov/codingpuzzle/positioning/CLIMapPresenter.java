@@ -1,12 +1,14 @@
 package com.achirkov.codingpuzzle.positioning;
 
+import javax.annotation.Nonnull;
+
 import static com.achirkov.codingpuzzle.io.ColorCodes.*;
 
-public class CLiMapPresenter implements MapPresenter {
+public class CliMapPresenter implements MapPresenter {
 
     @Override
     // TODO optimize: re-use pre-constructed StringBuilder
-    public void printMap(GameMapManager gameMapManager) {
+    public void printMap(@Nonnull GameMapManager gameMapManager) {
         StringBuilder sb = new StringBuilder();
         int dimension = gameMapManager.getDimension();
 

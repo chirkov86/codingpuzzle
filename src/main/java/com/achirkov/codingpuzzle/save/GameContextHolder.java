@@ -4,6 +4,7 @@ import com.achirkov.codingpuzzle.creatures.Player;
 import com.achirkov.codingpuzzle.gamesetting.GameSetting;
 import com.achirkov.codingpuzzle.positioning.GameMap;
 
+import javax.annotation.Nonnull;
 import java.io.Serializable;
 
 /**
@@ -15,7 +16,7 @@ public class GameContextHolder implements Serializable {
     private GameMap gameMap;
     private GameSetting gameSetting;
 
-    public GameContextHolder(Player player, GameMap gameMap, GameSetting gameSetting) {
+    public GameContextHolder(@Nonnull Player player, @Nonnull GameMap gameMap, @Nonnull GameSetting gameSetting) {
         this.player = player;
         this.gameMap = gameMap;
         this.gameSetting = gameSetting;

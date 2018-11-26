@@ -4,6 +4,7 @@ import com.achirkov.codingpuzzle.game.GameState;
 import com.achirkov.codingpuzzle.logger.Logger;
 import com.achirkov.codingpuzzle.validation.GameContextAwareInputValidator;
 
+import javax.annotation.Nonnull;
 import java.util.Scanner;
 import java.util.function.Predicate;
 
@@ -13,7 +14,7 @@ public class ConsoleReader {
     private final static Logger LOGGER = Logger.getInstance();
     private final Scanner sc = new Scanner(System.in);
 
-    public String parseCommand(GameState GameState) {
+    public String parseCommand(@Nonnull GameState GameState) {
 
         String input = sc.nextLine();
 

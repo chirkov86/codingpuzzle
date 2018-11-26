@@ -4,14 +4,14 @@ import com.achirkov.codingpuzzle.gamesetting.GameSetting;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CLiMapPresenterTest {
+public class CliMapPresenterTest {
 
-    private CLiMapPresenter cliMapPresenter;
+    private CliMapPresenter cliMapPresenter;
     private GameMapManager gameMapManager;
 
     @Before
     public void setUp() throws Exception {
-        cliMapPresenter = new CLiMapPresenter();
+        cliMapPresenter = new CliMapPresenter();
         gameMapManager = new GameMapManager(2, GameSetting.DUNGEON);
     }
 

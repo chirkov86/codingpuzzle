@@ -3,6 +3,8 @@ package com.achirkov.codingpuzzle.game;
 import com.achirkov.codingpuzzle.controllers.*;
 import com.achirkov.codingpuzzle.menus.Menu;
 
+import javax.annotation.Nonnull;
+
 /**
  * Game Finite State Machine representing all possible states and transitions between them.
  * Each state is processed by the corresponding {@code StateController}.
@@ -26,7 +28,7 @@ public enum GameState {
 
     StateController stateStateController;
 
-    GameState(StateController stateStateController) {
+    GameState(@Nonnull StateController stateStateController) {
         this.stateStateController = stateStateController;
     }
 
@@ -34,11 +36,11 @@ public enum GameState {
         return stateStateController.getMenu();
     }
 
-    public GameState processInput(String input, GameContextManager gameContextManager) {
+    public GameState processInput(@Nonnull String input, @Nonnull GameContextManager gameContextManager) {
         return stateStateController.processInput(input, gameContextManager);
     }
 
-    public void prepare(GameContextManager gameContextManager) {
+    public void prepare(@Nonnull GameContextManager gameContextManager) {
         stateStateController.showReport(gameContextManager);
         stateStateController.showMenu(gameContextManager);
     }

@@ -17,18 +17,18 @@ public class GameMapManager {
     private MapPresenter mapPresenter;
     private MapGenerator mapGenerator;
 
-    public GameMapManager(int dimension, GameSetting gameSetting) {
-        this.gameMap = new GameMap(dimension, new LinkedList<>(), new LinkedList<>(), Position.initial());
-        this.mapPresenter = new CLiMapPresenter();
+    public GameMapManager(int mapSize, @Nonnull GameSetting gameSetting) {
+        this.gameMap = new GameMap(mapSize, new LinkedList<>(), new LinkedList<>(), Position.initial());
+        this.mapPresenter = new CliMapPresenter();
         this.mapGenerator = new MapGenerator(gameSetting);
         mapGenerator.randomlyFillMapWithCreatures(this);
         mapGenerator.randomlyFillMapWithTreasures(this);
         mapGenerator.fillFogOfWar(this);
     }
 
-    public GameMapManager(GameMap gameMap, GameSetting gameSetting) {
+    public GameMapManager(@Nonnull GameMap gameMap, @Nonnull GameSetting gameSetting) {
         this.gameMap = gameMap;
-        this.mapPresenter = new CLiMapPresenter();
+        this.mapPresenter = new CliMapPresenter();
         this.mapGenerator = new MapGenerator(gameSetting);
     }
 

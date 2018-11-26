@@ -2,6 +2,7 @@ package com.achirkov.codingpuzzle.validation;
 
 import com.achirkov.codingpuzzle.game.GameState;
 
+import javax.annotation.Nonnull;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
@@ -29,7 +30,7 @@ public final class GameContextAwareInputValidator {
      * <p>
      * If current state has no menu, then Input string must match a non-empty alphanumeric regexp.
      */
-    public static Predicate<String> getValidationPredicate(GameState GameState) {
+    public static Predicate<String> getValidationPredicate(@Nonnull GameState GameState) {
         if (GameState.getStateMenu() != null && GameState.getStateMenu().getPossibleOptionInputs() != null) {
             return input -> IS_NOT_BLANK.test(input)
                     && GameState.getStateMenu().getPossibleOptionInputs().stream().anyMatch(input::equalsIgnoreCase);

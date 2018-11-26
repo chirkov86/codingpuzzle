@@ -9,6 +9,8 @@ import com.achirkov.codingpuzzle.positioning.Position;
 import com.achirkov.codingpuzzle.save.GameContextHolder;
 import com.achirkov.codingpuzzle.save.GameContextSerializer;
 
+import javax.annotation.Nonnull;
+
 /**
  * Main class responsible for holding and manipulating the game state.
  */
@@ -20,8 +22,8 @@ public class GameContextManager {
     private Position positionForAttack;
     private Position positionForFlee;
     private GameMapManager gameMapManager;
-    private GameContextSerializer gameContextSerializer;
-    private GameSetting gameSetting;
+    private final GameContextSerializer gameContextSerializer;
+    private final GameSetting gameSetting;
 
     public GameContextManager(GameSetting gameSetting) {
         this.gameSetting = gameSetting;
@@ -64,7 +66,7 @@ public class GameContextManager {
         }
     }
 
-    void processInput(String command) {
+    void processInput(@Nonnull String command) {
         LOGGER.debug("Current state: " + gameState.toString());
         LOGGER.debug("Processing command: " + command);
         this.gameState = gameState.processInput(command, this);

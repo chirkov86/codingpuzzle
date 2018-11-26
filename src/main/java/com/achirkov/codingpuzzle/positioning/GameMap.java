@@ -3,8 +3,10 @@ package com.achirkov.codingpuzzle.positioning;
 import com.achirkov.codingpuzzle.creatures.Creature;
 import com.achirkov.codingpuzzle.items.Item;
 
+import javax.annotation.Nonnull;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.LinkedList;
 
 /**
  * Data object class.
@@ -23,9 +25,9 @@ public class GameMap implements Serializable {
     public GameMap(int dimension, Collection<Creature> enemies, Collection<Item> treasures, Position playerPosition) {
         this.dimension = dimension;
         this.fogOfWar = new boolean[dimension][dimension];
-        this.enemies = enemies;
-        this.treasures = treasures;
-        this.playerPosition = playerPosition;
+        this.enemies = enemies != null ? enemies : new LinkedList<>();
+        this.treasures = treasures != null ? treasures : new LinkedList<>();
+        this.playerPosition = playerPosition != null ? playerPosition : Position.initial();
     }
 
     public int getDimension() {
@@ -50,7 +52,7 @@ public class GameMap implements Serializable {
         return playerPosition;
     }
 
-    public void setPlayerPosition(Position playerPosition) {
+    public void setPlayerPosition(@Nonnull Position playerPosition) {
         this.playerPosition = playerPosition;
     }
 
@@ -59,7 +61,7 @@ public class GameMap implements Serializable {
     }
 
     // required for serialization
-    public void setFogOfWar(boolean[][] fogOfWar) {
+    public void setFogOfWar(@Nonnull boolean[][] fogOfWar) {
         this.fogOfWar = fogOfWar;
     }
 
@@ -68,7 +70,7 @@ public class GameMap implements Serializable {
     }
 
     // required for serialization
-    public void setTreasures(Collection<Item> treasures) {
+    public void setTreasures(@Nonnull Collection<Item> treasures) {
         this.treasures = treasures;
     }
 }

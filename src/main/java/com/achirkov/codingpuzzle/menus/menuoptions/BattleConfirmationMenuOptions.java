@@ -2,7 +2,7 @@ package com.achirkov.codingpuzzle.menus.menuoptions;
 
 public enum BattleConfirmationMenuOptions implements MenuOption {
     ENGAGE("1. Engage the battle", 1),
-    DO_NOT_ENGAGE("2. Do not engage the battle", 2),
+    DO_NOT_ENGAGE("2. Do not engage", 2),
     ;
 
     String stringValue;
